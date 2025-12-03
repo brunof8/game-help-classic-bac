@@ -155,7 +155,10 @@ img { max-width: 90% !important; }
                       </tr>
                    </table>
                 </div>
-                <p>The Player and Banker hands are scored by adding the values of their cards. The highest possible total is 9. If a hand’s total goes over 9, only the last digit counts.</p>
+                <p>The game uses 8 standard decks of 52 cards.</p>
+                <p> In Baccarat, only the number value of each card matters — suits (hearts, spades, etc.) don’t affect the outcome.</p>
+                <p>The Player and Banker hands are scored by adding the values of their cards. The highest possible total is 9.</p>
+                <p>If a hand’s total goes over 9, only the last digit counts.  For example, a total of 14 becomes 4.</p>
                 <p>Here are a few examples:</p>
                 <ul>
                 <li>6 + 4 = 10 → becomes 0</li>
@@ -175,7 +178,7 @@ img { max-width: 90% !important; }
             </button>
             <div id="panel-the-third-card-rule" class="accordion-panel" hidden>
               <div class="accordion-content">
-                <p>A round concludes immediately after the initial four cards are dealt without additional cards being drawn in these scenarios:</p>
+                <p>A round concludes immediately after the initial four cards are dealt without any additional cards being drawn in these 3 scenarios:</p>
                 <ul><li>If either the Player or Banker hand totals 8 or 9 points from their first two cards (a "Natural hand").</li>
                 <li>If the Player has 6 points and the Banker has 7 points, or vice versa.</li>
                 <li>If both hands result in a Tie with 6, 7, 8, or 9 points.</li></ul>
@@ -183,10 +186,10 @@ img { max-width: 90% !important; }
                 <p><strong>For the Player's hand to draw:</strong></p>
                 <div class='table-wrap'>
                    <table>
-                      <tr>
+                     <tr>
                          <th>Total of Player’s first 2 cards</th>
                          <th>Action</th>
-                      </tr>
+                     </tr>
                       <tr>
                          <td>0,1,2,3,4,5</td>
                          <td>Draw 3rd Card</td>
@@ -203,13 +206,14 @@ img { max-width: 90% !important; }
                 </div>
                 <p><strong>For the Banker's hand to draw:</strong></p>
                 <div class='table-wrap'>
-                   <table>
+                  <table>
                       <thead>
                          <tr>
                             <th rowspan="2">Total of <br>Banker's first<br> 2 cards</th>
-                            <th colspan="10">3rd card drawn by the player:</th>
+                            <th colspan="11">3rd card drawn by the player:</th>
                          </tr>
                          <tr>
+                            <th>No 3rd card</th>
                             <th>0</th>
                             <th>1</th>
                             <th>2</th>
@@ -235,9 +239,11 @@ img { max-width: 90% !important; }
                             <td>D</td>
                             <td>D</td>
                             <td>D</td>
+                            <td>D</td>
                          </tr>
                          <tr>
                             <td>1</td>
+                            <td>D</td>
                             <td>D</td>
                             <td>D</td>
                             <td>D</td>
@@ -261,9 +267,11 @@ img { max-width: 90% !important; }
                             <td>D</td>
                             <td>D</td>
                             <td>D</td>
+                            <td>D</td>
                          </tr>
                          <tr>
                             <td>3</td>
+                            <td>D</td>
                             <td>D</td>
                             <td>D</td>
                             <td>D</td>
@@ -277,8 +285,9 @@ img { max-width: 90% !important; }
                          </tr>
                          <tr>
                             <td>4</td>
-                            <td>S</td>
                             <td>D</td>
+                            <td>S</td>
+                            <td>S</td>
                             <td>D</td>
                             <td>D</td>
                             <td>D</td>
@@ -290,6 +299,7 @@ img { max-width: 90% !important; }
                          </tr>
                          <tr>
                             <td>5</td>
+                            <td>D</td>
                             <td>S</td>
                             <td>S</td>
                             <td>S</td>
@@ -303,6 +313,7 @@ img { max-width: 90% !important; }
                          </tr>
                          <tr>
                             <td>6</td>
+                            <td>S</td>
                             <td>S</td>
                             <td>S</td>
                             <td>S</td>
@@ -326,6 +337,7 @@ img { max-width: 90% !important; }
                             <td>S</td>
                             <td>S</td>
                             <td>S</td>
+                            <td>S</td>
                          </tr>
                          <tr>
                             <td>8</td>
@@ -339,9 +351,11 @@ img { max-width: 90% !important; }
                             <td>S</td>
                             <td>S</td>
                             <td>S</td>
+                            <td>S</td>
                          </tr>
                          <tr>
                             <td>9</td>
+                            <td>S</td>
                             <td>S</td>
                             <td>S</td>
                             <td>S</td>
@@ -370,7 +384,6 @@ img { max-width: 90% !important; }
               <div class="accordion-content">
                 <p>Below is a table containing the Main Bet spots, their payouts, and the win condition.</p>
                 <div class='table-wrap'><table><tr><th>Bet spot</th><th>Payout</th><th>Win condition</th></tr><tr><td>Player</td><td>1:1</td><td>Player total &gt; Banker total</td></tr><tr><td>Banker</td><td>0.95:1</td><td>Player total &lt; Banker total</td></tr><tr><td>Tie</td><td>8:1</td><td>Player total = Banker total</td></tr></table></div>
-                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><i><strong>Important note</strong>: Low risk betting should not be allowed. (These are bets that allow players to exploit the bonusing system)</i></p></div>
               </div>
             </div>
           </section>
@@ -395,12 +408,12 @@ img { max-width: 90% !important; }
                 <li>Colored Pair – two cards of the same value and color but different suits (e.g., 5 of Hearts and 5 of Diamonds).</li>
                 <li>Mixed Pair – two cards of different suits and colors but the same value (e.g., 7 of Spades and 7 of Diamonds).</li>
                 </ul>
-                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><strong>Important note:</strong> After <em>60 game rounds, the side bets Player Pair, Banker Pair, Perfect Pair and Either Pair will be disabled.</em></p></div>
-                <p><em>Player/Banker Bonus Side Bets</em></p>
+                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><strong>Important Note:</strong> After 60 game rounds, the pair side bets will be disabled as a counter-measure against card counting, ensuring the statistical integrity of the bet's advertised RTP.</p></div>
+                <p><b><em>Player/Banker Bonus Side Bets</em></b></p>
                 <p><em>Player Bonus or Banker Bonus is won with either a natural win or a non-natural win of at least 4 points.</em></p>
                 <p><em>Below are the payouts for each outcome:</em></p>
                 <div class='table-wrap'><table><tr><th>Outcome</th><th>Payout</th></tr><tr><td>Wins with a non-natural hand by 9 points</td><td>30:1</td></tr><tr><td>Wins with a non-natural hand by 8 points</td><td>10:1</td></tr><tr><td>Wins with a non-natural hand by 7 points</td><td>6:1</td></tr><tr><td>Wins with a non-natural hand by 6 points</td><td>4:1</td></tr><tr><td>Wins with a non-natural hand by 5 points</td><td>2:1</td></tr><tr><td>Wins with a non-natural hand by 4 points</td><td>1:1</td></tr><tr><td>Natural Win</td><td>1:1</td></tr><tr><td>Natural Tie</td><td>PUSH (Returns the Player’s previous bet amount)</td></tr></table></div>
-                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><i><strong>Important Note:</strong>  After 44 game rounds, the side bets Player Bonus and Banker Bonus will be disabled.</i></p></div>
+                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><strong>Important Note:</strong> After 44 game rounds, the side bets Player Bonus and Banker Bonus will be disabled as a counter-measure against card counting, ensuring the statistical integrity of the bet's advertised RTP.</p></div>
               </div>
             </div>
           </section>
@@ -430,6 +443,25 @@ img { max-width: 90% !important; }
                 <img loading='lazy' src='../images/image9.png' width="25%" alt='Game ID and time'/>
                 <p>The current time is displayed and synced with the server.</p>
                 <img loading='lazy' src='../images/image10.png' width="50%" alt='Clock indicator'/>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="no-commission-mode">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-no-commission-mode">
+              <span>No Commission mode</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-no-commission-mode" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>No Commission Baccarat is an alternative to traditional Baccarat where the usual 5% commission on Banker wins is removed. This variation offers faster, more straightforward payouts. In this mode, standard Banker wins pay 1:1, just like Player wins—except when the Banker wins with a total of 6.</p>
+                <p>If the Banker’s winning hand totals 6, the payout is half the wager (0.5:1).</p>
+                <p>All tables start in Regular Baccarat by default. However, you can switch to No Commission mode at any time before the betting timer ends by using the “No Comm.” toggle.</p>
+                <p>No Commission Baccarat also includes the popular Super 6 side bet, which pays 15:1 when the Banker wins with 6. Rules for Super 6:</p>
+                <ul>
+                  <li>You may only place a Super 6 bet after wagering on at least one of the main betting options. Placing bets on Super 6 and Player simultaneously is not considered opposite betting.</li>
+                  <li>The Super 6 bet amount cannot be higher than your main bet.</li>
+                  <li>After 44 rounds, the Super 6 side bet becomes unavailable.</li>
+                </ul>
               </div>
             </div>
           </section>
@@ -463,13 +495,15 @@ img { max-width: 90% !important; }
                 <li>Cockroach Road</li>
                 <li>Bead Plate</li></ul>
                 <h4 id='big-road'><strong>Big Road</strong></h4>
-                <p>The Big Road is the primary roadmap, from which all other derived roads are based. Symbols used in the Big Road include blue hollow circles for Player wins and red hollow circles for Banker wins.</p>
-                <p>The Big Road begins with the first result of a shoe, placed in the top-left corner. Subsequent results of the same side are recorded directly below, while opposite sides initiate a new column.</p>
+                <p>The Big Road is the primary roadmap, from which all other derived roads are based on.</p>
+                <p>The Big Road begins with the first result of a shoe, placed in the top-left corner. Subsequent results of the same side are recorded directly below, while opposite sides initiate a new column. This creates columns of hollow circles throughout the shoe, with blue circles representing Player wins and red circles indicating Banker wins.</p>
+                <p><img src="../images/image66.png" alt="Big Road" style="max-width: 90%;" /></p>
                 <p>On the Big Road, a Tie is indicated by a green line drawn across the last result. In cases of multiple consecutive ties, a small number appears on the green line, showing the total number of ties. If a Tie occurs before any Banker or Player result is recorded, the green Tie line will be displayed in the top-left cell of the grid. Once the first Banker or Player result is known, its circle will appear in the same cell, beneath the Tie line.</p>
                 <p>When there are more than six consecutive wins for either the Banker or the Player, this sequence is referred to as "the dragon." A common Baccarat strategy involves "following the dragon," repeatedly choosing the same side until it switches.</p>
                 <h4 id='derived-roads'><strong>The Derived Roads</strong></h4>
                 <p>The Big Eye Boy, Small Road, and Cockroach Road are all derived from the Big Road and illustrate various patterns within it. These "predictive roads" reveal whether patterns exist.</p>
                 <p>Each derived road uses specific symbols: empty circles for the Big Eye Boy, solid circles for the Small Road, and slashes for the Cockroach Road. Red symbols indicate predictability, while blue symbols suggest “chaos” or no discernible pattern. These colors do not represent Banker or Player outcomes.</p>
+                <p><img src="../images/image77.png" alt="Derived Road" style="max-width: 90%;" /></p>
                 <p>Derived roads do not begin at the very start of the shoe. Instead, they begin with the hand immediately following the first hand in specific columns of the Big Road:</p>
                 <ul>
                 <li><strong>Big Eye Boy:</strong> Starts with the second result in the second column.</li>
@@ -489,22 +523,21 @@ img { max-width: 90% !important; }
               <div class="accordion-content">
                 <p>The Bead Plate tracks every hand in a shoe in a straightforward manner. Green circles in separate cells on the Bead Plate denote ties.</p>
                 <p>Results are displayed starting from the top-left of the grid, filling vertically down each of the six cells in a column. A new column begins once the previous one is full, irrespective of the hand's outcome.</p>
-                <p>Tapping or clicking the Bead Plate statistics area will show results as letters (P for Player, B for Banker, T for Tie).</p>
                 <img loading='lazy' src='../images/image1.png' width="90%" alt='Bead plate example'/>
               </div>
             </div>
           </section>
           <section class="accordion-item" id="roadmap-probing">
             <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-roadmap-probing">
-              <span>Roadmap Probing (Ask Player, Ask Banker)</span>
+              <span>Roadmap Probing (next round prediction)</span>
               <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
             </button>
             <div id="panel-roadmap-probing" class="accordion-panel" hidden>
               <div class="accordion-content">
                 <p>Roadmap Probing helps players in predicting the outcome of the next round. It shows the trends in the Big Road, Big Eye Boy, Small Road, Cockroach Road and Bead Plate if either a Player or a Banker result were added.</p>
-                <p>Click/tap the Ask Player or Ask Banker button to see the trends, if the next result were a Player or Banker win, respectively.</p>
+                <p>Click/tap the Player Predict or Banker Predict button to see the trends, if the next result were a Player or Banker win, respectively.</p>
                 <img loading='lazy' src='../images/image5.png' width="33%" alt='Roadmap probing buttons'/>
-                <p>The symbols on the buttons represent what the derived roads entry would be if Player or Banker wins.</p>
+                <p>The symbols on the buttons represent what the derived roads entry would be if player or banker wins.</p>
               </div>
             </div>
           </section>
@@ -515,18 +548,19 @@ img { max-width: 90% !important; }
             </button>
             <div id="panel-navigation-controls" class="accordion-panel" hidden>
               <div class="accordion-content">
-                <!-- <p>Navigation controls keep chat, help, and configuration tools within reach so you can switch tasks without leaving the table. Use them to open Player Chat, toggle settings, review history, or access game assistance.</p>-->
+                <!-- <p><strong>Player Chat</strong></p>
+                <p>The chat window, accessible via the Chat button, allows interaction with the dealer and other players. The dealer is available to answer game-related questions directly.</p>
+                <img loading='lazy' src='../images/image3.png' width="25%" alt='Player chat window'/>
+                <p>Customer Support monitors all chat messages. Players who misuse the chat feature, including abusing the Dealer or other players, or using inappropriate or offensive language, may have their chat privileges disabled.</p> -->
                 <p><strong>Settings</strong></p>
-                <p>Opening the settings allows you to adjust various preferences.</p>
-                <p>Use the audio controls to tune the mix: studio sounds capture ambient noise from the table, while game effects cover
-                  UI interactions.</p>
+                <p>Opening the settings allows you to adjust various settings according to your preferences.</p>
+                <p>Here you can adjust the volume of the game. Studio sounds are any sounds picked up from the studio while game effects are the sounds from UI interaction.</p>
                 <img loading='lazy' src='../images/image16.png' width="25%" alt='Sound settings' />
-                <p>The Game History lets you review all of your past games and their results. Click a game to see the Date, Game type,
-                  Bet, and Win/Lose.</p>
+                <p>The Game History will allow you to view all your past games and their results. You can then click on a specific game to see the Date, Game type, Bet, and Win/lose</p>
                 <img loading='lazy' src='../images/image12.png' width="25%" alt='Game history list' />
-                <p>The Game Help will display a comprehensive guide of how to play the game and navigate around the interface.</p>
+                <p>The Game Help will display a comprehensive guide of how to play the game and navigate around our interface.</p>
                 <img loading='lazy' src='../images/image13.png' width="25%" alt='Game help panel' />
-                <p>Under the tab General the following settings are available:</p>
+                <p>Under the tab General following settings are available:</p>
                 <ul>
                   <li>Display Name</li>
                   <li>Language</li>
@@ -586,15 +620,6 @@ img { max-width: 90% !important; }
                 <li>The Dealer will then announce that the current hand is the final hand of the shoe.</li>
                 <li>Upon completion of this last hand, no further cards are dealt until either a shoe change or a shuffle procedure is initiated.</li>
                 </ul>
-                <p><strong>Shoe Change Procedure:</strong></p>
-                <ul>
-                <li><strong>Discretionary Changes:</strong> Shift management reserves the sole discretion to initiate a shoe change before the cutting card is even removed.</li>
-                <li><strong>Mandatory Changes:</strong> A complete card change procedure is performed once every 24 hours or in the following specific scenarios:
-                <ul><li>The table has been reactivated after a period of inactivity.</li>
-                <li>The video stream for the table became unavailable.</li>
-                <li>More than three cards accidentally fell to the floor during a game round.</li>
-                <li>A card with a defective barcode is discovered within the shoe.</li></ul></li>
-                </ul>
               </div>
             </div>
           </section>
@@ -618,7 +643,7 @@ img { max-width: 90% !important; }
             </button>
             <div id="panel-disconnection-policy" class="accordion-panel" hidden>
               <div class="accordion-content">
-                <p>While playing online, disconnections can occasionally occur. Should this happen, you can review your winnings in the History window. For any inquiries regarding game outcomes, please contact Live Support directly within the game or reach out to Casino Customer Support, ensuring you provide your Game ID number.</p>
+                <p>While playing online, disconnections can occasionally occur. Should this happen, you can review your winnings in the Game History. For any inquiries regarding game outcomes, please contact Live Support directly within the game or reach out to Casino Customer Support, ensuring you provide your Game ID number.</p>
               </div>
             </div>
           </section>
