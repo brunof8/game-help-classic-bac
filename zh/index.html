@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>游戏帮助</title>
+    <meta name="theme-color" content="#0a0a0a" />
+    <style>
+:root {
+  --bg: #1a1a1a;
+  --bg-alt: #2a2a2a;
+  --text: #e8e8e8;
+  --muted: #b5b5b5;
+  --accent: #9adcff;
+  --card: #151515;
+  --border: #2f2f2f;
+}
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-size: 18px; }
+body { height: 100vh; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 920px; margin: 0 auto; padding: 16px; }
+.header { position: sticky; top: 0; z-index: 10; background: linear-gradient(180deg, rgba(10,10,10,0.98), rgba(10,10,10,0.92)); border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
+.header-inner { display:flex; align-items:center; gap:12px; padding: 12px 16px; }
+header .title { font-size: 1.777777rem; font-weight: 700; }
+.badge { font-size:.75rem; color: var(--muted); background: var(--bg-alt); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); }
+
+.main { padding: 16px; }
+.summary { background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 16px; margin: 12px 0 24px; }
+.summary p { margin-top:0; color: var(--muted); }
+.toc { list-style: none; padding-left: 0; margin: 0; }
+.toc li { margin: 6px 0; }
+.toc li::before { content: '• '; color: var(--accent); }
+
+h1,h2,h3,h4,h5,h6 { scroll-margin-top: 80px; }
+h2 { margin-top: 28px; border-bottom: 1px dashed var(--border); padding-bottom: 6px; font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+p, ul li { line-height: 1.6; }
+.table-wrap { overflow-x: auto; border:1px solid var(--border); border-radius: 12px; margin: 12px 0; }
+table { width: 100%; border-collapse: collapse; min-width: 420px; }
+th, td { border-bottom: 1px solid var(--border); padding: 10px; text-align: left; }
+th { background: var(--bg-alt); }
+
+.toc-table { border-spacing: 0; }
+.toc-table th { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+.toc-table td { padding: 8px 16px; }
+.toc-table tr:hover { background: rgba(154, 220, 255, 0.05); }
+.toc-table .main-section { font-weight: 600; font-size: 1rem; }
+.toc-table .sub-section { font-weight: 400; font-size: 0.9rem; padding-left: 32px; color: var(--muted); }
+.toc-table .sub-section a { color: var(--muted); }
+.toc-table .sub-section:hover a { color: var(--accent); }
+.toc-table .sub-sub-section { font-weight: 300; font-size: 0.85rem; padding-left: 48px; color: var(--muted); opacity: 0.8; }
+.toc-table .sub-sub-section a { color: var(--muted); }
+.toc-table .sub-sub-section:hover a { color: var(--accent); }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.gallery figure { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 8px; }
+.gallery img { width: 100%; height: auto; display: block; border-radius: 8px; }
+.gallery figcaption { font-size: .8rem; color: var(--muted); margin-top: 6px; word-break: break-all; }
+
+/* Mobile-first tweaks */
+.container { padding: 12px; }
+.title { font-size: 1.5rem; }
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  .title { font-size: 1.75rem; }
+}
+
+/* Desktop */
+@media (min-width: 960px) {
+  .container { padding: 16px; }
+  .title { font-size: 2rem; }
+}
+
+.accordion { display: flex; flex-direction: column; gap: 16px; }
+.accordion-item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.accordion-trigger { width: 100%; background: none; border: none; color: var(--text); font: inherit; text-align: left; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; font-size: 1.222222rem; font-weight: 600; }
+.accordion-trigger:hover, .accordion-trigger:focus-visible { background: rgba(154, 220, 255, 0.08); outline: 1px solid var(--accent); outline-offset: 2px; }
+.accordion-icon { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; display: inline-block; pointer-events: none; }
+.accordion-panel { border-top: 1px solid var(--border); padding: 0 20px 20px; background: var(--card); }
+.accordion-panel[hidden] { display: none; }
+.accordion-content > :first-child { margin-top: 20px; }
+.accordion-content > * { margin-left: 0; }
+
+</style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner container">
+        <div class="title">游戏帮助</div> <span><i>v.1.0</i></span>
+      </div>
+    </header>
+    <main class="main container">
+      <article>
+        <div class="accordion" id="game-help-accordion">
+          <section class="accordion-item" id="introduction">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-introduction">
+              <span>介绍</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-introduction" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>百家乐是一款经典且广受欢迎的赌场游戏，遍布全球玩家，尤其受到高额玩家的青睐，并在亚洲市场流行。该游戏以规则简明、节奏明快著称。</p>
+                <p>目标很简单：预测哪一方（闲家或庄家）的点数总和更接近 9。</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="how-to-play">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-how-to-play">
+              <span>玩法说明</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-how-to-play" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>开始游戏时，先选择筹码金额，然后将赌注押在“闲家”“庄家”或“平局”投注区。只要下注时间仍开启，您就可以调整投注。</p>
+                <p>下注结束后，荷官总共发四张牌：第 1 张与第 3 张发给闲家，第 2 张与第 4 张发给庄家。荷官先从闲家的手牌开始扫描。</p>
+                <p>如任一方需要第三张牌，将根据“第三张牌规则”补发（详见下文）。</p>
+                <p>当所有需要的牌均已发出，本局结束。点数更接近 9 的一方获胜；若双方点数相同，则判为平局。</p>
+                <p>获胜的投注会被高亮显示，并按所选投注类型派彩。您的赢取金额也会在屏幕上显示。</p>
+                <p>本局结束后，牌面会被清理，新的下注阶段随即开始。</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="card-values">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-card-values">
+              <span>牌值</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-card-values" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>游戏使用 8 副标准的 52 张扑克牌。只计算牌面的数字，花色（红桃、黑桃、方块、梅花）不影响结果。</p>
+                <div class='table-wrap'>
+                   <table>
+                      <tr>
+                         <th>牌</th>
+                         <th>数值</th>
+                      </tr>
+                      <tr>
+                         <td>A（王牌）</td>
+                         <td>1</td>
+                      </tr>
+                      <tr>
+                         <td>2–9</td>
+                         <td>牌面值（例如，4 = 4）</td>
+                      </tr>
+                      <tr>
+                         <td>10、J、Q、K</td>
+                         <td>0</td>
+                      </tr>
+                   </table>
+                </div>
+                <p>本游戏使用 8 副标准 52 张牌。</p>
+                <p>在百家乐中，只计算每张牌的点数；花色不会影响结果。</p>
+                <p>闲家与庄家的手牌通过相加各自牌面点数来计分，最高总点为 9。</p>
+                <p>若手牌总点超过 9，仅取其个位数。例如，总点 14 记为 4。</p>
+                <p>示例：</p>
+                <ul>
+                <li>6 + 4 = 10 → 记为 0</li>
+                <li>3 + 9 = 12 → 记为 2</li>
+                <li>2 + 2 + 7 = 11 → 记为 1</li>
+                <li>K + 5 = 5</li>
+                <li>A + 8 = 9</li>
+                <li>7 + 7 = 14 → 记为 4</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="the-third-card-rule">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-the-third-card-rule">
+              <span>第三张牌规则</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-the-third-card-rule" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>在以下三种情形中，本局在最初四张牌发完后即刻结束（“小手”，不再补牌）：</p>
+                <ul><li>若闲家或庄家任一方首两张牌合计为 8 或 9（称为“天生赢家/自然牌”）。</li>
+                <li>若闲家为 6 点而庄家为 7 点，或反之。</li>
+                <li>若双方首两张牌合计为 6、7、8 或 9 且点数相同，判为平局。</li></ul>
+                <p>若闲家与庄家双方首两张牌合计介于 0–7 点之间，则根据第三张牌规则判断是否需为任一方补发第三张牌。总是先判断闲家。</p>
+                <p><strong>闲家补牌规则：</strong></p>
+                <div class='table-wrap'>
+                   <table>
+                      <tr>
+                         <th>闲家首两张合计：</th>
+                         <th>操作</th>
+                      </tr>
+                      <tr>
+                         <td>0、1、2、3、4、5</td>
+                         <td>补第三张牌</td>
+                      </tr>
+                      <tr>
+                         <td>6、7</td>
+                         <td>闲家停牌</td>
+                      </tr>
+                      <tr>
+                         <td>自然 8 或 9</td>
+                         <td>双方停牌</td>
+                      </tr>
+                   </table>
+                </div>
+                <p><strong>庄家补牌规则：</strong></p>
+                <div class='table-wrap'>
+                   <table>
+                      <thead>
+                         <tr>
+                            <th rowspan="2">庄家<br>首两张合计</th>
+                            <th colspan="10">闲家的第三张牌为：</th>
+                         </tr>
+                         <tr>
+                            <th>0</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         <tr>
+                            <td>0</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                         </tr>
+                         <tr>
+                            <td>1</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                         </tr>
+                         <tr>
+                            <td>2</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                         </tr>
+                         <tr>
+                            <td>3</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>S</td>
+                            <td>D</td>
+                         </tr>
+                         <tr>
+                            <td>4</td>
+                            <td>S</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>5</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>6</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>7</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>8</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>9</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                      </tbody>
+                   </table>
+                </div>
+                <p>(D = 补牌；S = 停牌)</p>
+                <p>若闲家首两张牌合计为 6 或 7，而庄家不足 6 点，则庄家<strong>必须</strong>补牌。</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="main-bets">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-main-bets">
+              <span>主要投注</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-main-bets" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>下表列出了主投注区、派彩以及获胜条件。</p>
+                <div class='table-wrap'><table><tr><th>投注区</th><th>派彩</th><th>获胜条件</th></tr><tr><td>闲家</td><td>1:1</td><td>闲家点数 &gt; 庄家</td></tr><tr><td>庄家</td><td>0.95:1</td><td>闲家点数 &lt; 庄家</td></tr><tr><td>平局</td><td>8:1</td><td>闲家点数 = 庄家</td></tr></table></div>
+                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><i><strong>重要提示：</strong>不得启用低风险套利式投注，以防玩家利用奖金机制。</i></p></div>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="side-bets">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-side-bets">
+              <span>附加投注</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-side-bets" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>玩家可以选择下注以下附加投注，且不必先下主投注；也可以同时组合多个附加投注。</p>
+                <ul><li>闲对</li>
+                <li>庄对</li>
+                <li>任意对</li>
+                <li>完美对</li>
+                <li>闲家红利</li>
+                <li>庄家红利</li></ul>
+                <h4><em><strong>对子投注</strong></em></h4>
+                <div class='table-wrap'><table><tr><th>投注选项</th><th>派彩</th><th>获胜条件</th></tr><tr><td>闲对</td><td>11:1</td><td>闲家首两张牌同点</td></tr><tr><td>庄对</td><td>11:1</td><td>庄家首两张牌同点</td></tr><tr><td>任意对</td><td>5:1</td><td>闲或庄任一方首两张牌成对</td></tr><tr><td>完美对</td><td>25:1</td><td>闲或庄任一方首两张牌为完全相同的牌</td></tr></table></div>
+                <h4><em>对子类型：</em></h4>
+                <ul><li>完美对：同点且同花色的两张牌。</li>
+                <li>同色对：同点、同颜色但不同花色。</li>
+                <li>异色对：同点但花色颜色均不同。</li>
+                </ul>
+                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><strong>重要提示：</strong>进行 60 局后，闲对、庄对、完美对与任意对投注将被禁用。</p></div>
+                <p><em>闲家/庄家红利投注</em></p>
+                <p><em>若以自然牌获胜，或以非自然牌且领先至少 4 点获胜，则对应的红利投注中奖。</em></p>
+                <p><em>派彩如下：</em></p>
+                <div class='table-wrap'><table><tr><th>结果</th><th>派彩</th></tr><tr><td>非自然牌领先 9 点</td><td>30:1</td></tr><tr><td>非自然牌领先 8 点</td><td>10:1</td></tr><tr><td>非自然牌领先 7 点</td><td>6:1</td></tr><tr><td>非自然牌领先 6 点</td><td>4:1</td></tr><tr><td>非自然牌领先 5 点</td><td>2:1</td></tr><tr><td>非自然牌领先 4 点</td><td>1:1</td></tr><tr><td>自然牌获胜</td><td>1:1</td></tr><tr><td>自然牌平局</td><td>退还原注</td></tr></table></div>
+                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><i><strong>重要提示：</strong>进行 44 局后，闲家红利与庄家红利投注将被禁用。</i></p></div>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="placing-bets">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-placing-bets">
+              <span>下注方式</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-placing-bets" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>“桌台名称”显示您当前所在的牌桌；“桌台限额”展示该桌最小与最大可下注额。</p>
+                <p>点击该区域可打开“赔率与限额”窗口，查看各投注类型的完整限额与赔率。</p>
+                <img loading='lazy' src='../images/image6.png' alt='image6.png'/>
+                <p>计时器显示剩余可下注的时间。</p>
+                <img loading='lazy' src='../images/image17.png' width="15%" alt='image17.png'/>
+                <p>筹码盘显示可选择的筹码面值。仅在您的余额范围内的筹码面值才可被选择。</p>
+                <img loading='lazy' src='../images/image18.png' alt=''/>
+                <p>“重押”按钮可在预算允许的情况下重复本局中您上一次的投注。按下“重押”后，该按钮会变成“加倍”。</p>
+                <img loading='lazy' src='../images/image15.png' alt=''/>
+                <p>“加倍”按钮会将您已下的所有投注翻倍，直至余额或限额不允许为止。</p>
+                <img loading='lazy' src='../images/image4.png' alt=''/>
+                <p>“撤销”会逐一回退您最近的操作（如放置筹码或使用“加倍”）。下注阶段结束后不可撤销。</p>
+                <img loading='lazy' src='../images/image8.png' alt=''/>
+                <p>“余额”指示器显示您所选货币的剩余资金；“总投注”显示本局您已下注的总额。</p>
+                <img loading='lazy' src='../images/image7.png' width="50%" alt=''/>
+                <p>“牌局编号（Game ID）”是每一局的唯一标识，用于在出现争议时进行核对。“时间”显示您当前的本地时间。</p>
+                <img loading='lazy' src='../images/image9.png' width="25%" alt=''/>
+                <p>当前时间会显示并与服务器同步。</p>
+                <img loading='lazy' src='../images/image10.png' width="50%" alt=''/>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="return-to-player">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-return-to-player">
+              <span>玩家回报率</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-return-to-player" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>按照以“庄家下注”为最优策略的理论计算，百家乐的最优理论玩家回报率（RTP）为 98.94%。</p>
+                <div class='table-wrap'><table><tr><th>投注类型</th><th>玩家回报率</th></tr><tr><td>闲家</td><td>98.76%</td></tr><tr><td>庄家</td><td>98.94%</td></tr><tr><td>平局</td><td>85.64%</td></tr></table></div>
+                <p>附加投注的理论 RTP：</p>
+                <div class='table-wrap'><table><tr><th>投注类型</th><th>玩家回报率</th></tr><tr><td>闲对</td><td>89.64%</td></tr><tr><td>庄对</td><td>89.64%</td></tr><tr><td>任意对</td><td>86.29%</td></tr><tr><td>完美对</td><td>86.97%</td></tr><tr><td>闲家红利</td><td>97.35%</td></tr><tr><td>庄家红利</td><td>90.63%</td></tr></table></div>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="roadmaps">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-roadmaps">
+              <span>路单</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-roadmaps" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>在百家乐中，玩家通常通过称为<em>“路单”</em>的图表来追踪走势与连庄/连闲。路单为过往结果与牌靴统计提供可视化记录，从而为预测后续结果提供参考。</p>
+                <p>自每副新牌靴的首局开始记录，直至出现切牌卡为止。一旦发完本靴最后一手，所有记录会被清空，并在下一靴重新开始。</p>
+                <p>百家乐中有五种传统路单：</p>
+                <ul style="font-weight: bold;"><li>大路
+                </li>
+                <li>大眼仔</li>
+                <li>小路</li>
+                <li>甲由路</li>
+                <li>珠盘路</li></ul>
+                <h4 id='big-road'><strong>大路</strong></h4>
+                <p>大路是主要路单，其他派生路均以此为基础。其使用的符号如下：</p>
+                <img loading='lazy' src='../images/image11.png' width="90%" alt=''/>
+                <p>大路以本靴首局的结果开始，记在网格左上角。相同一方（闲或庄）连赢则向下续记；若换边，则开启新的一列。如此形成一列列的空心圆：蓝色代表闲赢，红色代表庄赢。</p>
+                <img loading='lazy' src='../images/image2.png' width="50%" alt=''/>
+                <p>在大路中，平局以一条绿色横线标注在最近一次结果的圆上；若连续多次平局，绿色线上会显示一个小数字表示平局次数。若在尚未出现首个闲/庄结果前出现平局，则左上角格子会先显示绿色平局线；当第一笔闲或庄结果出现时，其相应的圆会出现在同一格子的绿色线下面。</p>
+                <p>当庄或闲连续胜出超过 6 次时，通常称为“长龙”。一个常见策略是“跟龙”——在换边之前持续追随同一方下注。</p>
+                <h4 id='the-derived-roads'><strong>派生路</strong></h4>
+                <p>大眼仔、小路与甲由路均由大路推演而来，用于展示其中是否存在某些“规律”。这些“预测型路单”显示的是结构与节奏，而非闲/庄本身。</p>
+                <p>每种派生路使用不同符号：大眼仔用空心圆、小路用实心圆、甲由路用斜杠。红色代表“有规律/可预测”，蓝色代表“混沌/无明显规律”。需要注意，这里的颜色并不代表庄或闲结果。</p>
+                <img loading='lazy' width="99%" src='../images/image14.png' alt=''/>
+                <p>派生路并非从牌靴一开始就绘制，而是从大路中特定列的第二手之后开始：</p>
+                <ul><li><strong>大眼仔：</strong>从第二列的第二手之后开始。</li>
+                <li><strong>小路：</strong>从第三列的第二手之后开始。</li>
+                <li><strong>甲由路：</strong>从第四列的第二手之后开始。</li>
+                </ul>
+                <p>一旦派生路开始，每手牌结束后都会新增一个红色或蓝色符号。用户可点击任意派生路以放大查看其内容。</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="bead-plate">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-bead-plate">
+              <span>珠盘路</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-bead-plate" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>珠盘路以最直接的方式记录每一手牌。独立格子中的绿色圆表示平局。</p>
+                <p>结果从网格左上角开始按列自上而下填充，每列最多 6 行，排满后换至下一列继续，无论结果为何。</p>
+                <p>点击“珠盘路统计”区域，可将结果显示为字母（P = 闲，B = 庄，T = 平）。</p>
+                <img loading='lazy' src='../images/image1.png' width="90%" alt=''/>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="roadmap-probing">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-roadmap-probing">
+              <span>路单预测（问闲/问庄）</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-roadmap-probing" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>“路单预测”可帮助玩家预判下一手的走势。它会分别显示：若下一手为“闲赢”或“庄赢”，大路、大眼仔、小路、甲由路与珠盘路将呈现的趋势。</p>
+                <p>点击“问闲”或“问庄”按钮，即可查看在下一手分别为闲赢或庄赢时的趋势预览。</p>
+                <img loading='lazy' src='../images/image5.png' width="33%" alt=''/>
+                <p>按钮上的符号展示的是在对应假设（闲赢/庄赢）下，派生路将出现的标记。</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="navigation-controls">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-navigation-controls">
+              <span>导航控制</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-navigation-controls" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <!-- <p>导航控件让聊天、帮助与配置工具随时可用，您无需离开牌桌即可快速打开玩家聊天、切换设置、查看历史或访问帮助资源。</p>-->
+                <p><strong>设置</strong></p>
+                <p>打开“设置”可根据您的偏好调整多项选项。</p>
+                <p>这里可以调节游戏音量。“现场声音”指来自演播室的环境/人声，“游戏音效”指界面交互所产生的音效。</p>
+                <img loading='lazy' src='../images/image16.png' width="25%" alt='' />
+                <p>“游戏记录”可查看您过往的所有牌局与结果；点击任一记录可查看日期、游戏类型、投注与输赢情况。</p>
+                <img loading='lazy' src='../images/image12.png' width="25%" alt='' />
+                <p>“游戏帮助”将显示完整的新手指南以及如何在我们的界面中进行操作。</p>
+                <img loading='lazy' src='../images/image13.png' width="25%" alt='' />
+                <p>在“通用”选项卡下，可用设置包括：</p>
+                <ul>
+                  <li>显示名称</li>
+                  <li>语言</li>
+                </ul>
+                <p>在“视频”下：</p>
+                <ul>
+                  <li>开启/关闭带视频游戏</li>
+                  <li>视频质量</li>
+                </ul>
+                <p>在“声音”下：</p>
+                <ul>
+                  <li>总体音量滑块</li>
+                  <li>现场声音滑块</li>
+                  <li>游戏音效滑块</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <!-- <section class="accordion-item" id="settings">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-settings">
+              <span>设置</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-settings" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                
+              </div>
+            </div>
+          </section>-->
+          <section class="accordion-item" id="card-shuffle-and-change">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-card-shuffle-and-change">
+              <span>洗牌与换牌</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-card-shuffle-and-change" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p><strong>洗牌：</strong></p>
+                <ul>
+                <li><strong>时机：</strong>当一局结束并从牌靴中取出切牌卡后立即洗牌。</li>
+                <li><strong>方式：</strong>由专职洗牌员在洗牌桌进行，或由荷官在牌桌按既定流程洗牌。</li>
+                </ul>
+                <p><strong>切牌卡与最后一手：</strong></p>
+                <ul>
+                <li>若在游戏过程中出现切牌卡，将其取出。</li>
+                <li>随后荷官会宣布当前手为本靴的最后一手。</li>
+                <li>此手完成后，在更换牌靴或完成洗牌流程之前，不再发牌。</li>
+                </ul>
+                <p><strong>更换牌靴流程：</strong></p>
+                <ul>
+                <li><strong>酌情更换：</strong>班次管理可在切牌卡尚未取出前，酌情决定更换牌靴。</li>
+                <li><strong>强制更换：</strong>以下情形将进行完整的换牌流程（至少每 24 小时一次）：
+                <ul><li>牌桌在一段时间停用后重新启用。</li>
+                <li>该牌桌的视频流出现不可用。</li>
+                <li>一局中不慎掉落超过三张牌至地面。</li>
+                <li>在牌靴中发现条码缺陷的牌。</li></ul></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="game-inconveniences">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-game-inconveniences">
+              <span>游戏异常</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-game-inconveniences" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>若在百家乐游戏过程中出现与游戏本身、系统、流程或交易活动相关的任何错误，当前牌局将暂时暂停。值班经理会立即收到通知，且所有玩家的屏幕上都会显示调查中的提示。</p>
+                <p>若问题能迅速解决，游戏将恢复正常进行；若无法即刻解决，该局将被取消，所有初始投注将退还给参与玩家。</p>
+                <p>如有任何游戏相关问题，请联系在线客服，并提供您的牌局编号（Game ID）。</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="disconnection-policy">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-disconnection-policy">
+              <span>断线政策</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-disconnection-policy" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>在线游戏时偶有断线的可能。若发生断线，您可以在“游戏记录”窗口查看中奖情况。对于任何牌局结果的疑问，请直接在游戏内联系在线客服，或与平台客服沟通，并务必提供您的牌局编号。</p>
+              </div>
+            </div>
+          </section>
+          
+          
+          
+        </div>
+      </article>
+    </main>
+    <script>
+      const accordionButtons = document.querySelectorAll('.accordion-trigger');
+      accordionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const expanded = button.getAttribute('aria-expanded') === 'true';
+          const panelId = button.getAttribute('aria-controls');
+          const panel = document.getElementById(panelId);
+          button.setAttribute('aria-expanded', String(!expanded));
+          if (panel) {
+            panel.hidden = expanded;
+          }
+          const icon = button.querySelector('.accordion-icon');
+          if (icon) {
+            icon.src = expanded ? '../images/down-arrow.png' : '../images/up-arrow.png';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

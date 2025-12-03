@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Game Help</title>
+    <meta name="theme-color" content="#0a0a0a" />
+    <style>
+:root {
+  --bg: #181818;
+  --bg-alt: #2a2a2a;
+  --text: #e8e8e8;
+  --muted: #b5b5b5;
+  --accent: #9adcff;
+  --card: #151515;
+  --border: #2f2f2f;
+}
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-size: 18px; }
+body { height: 100vh; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 920px; margin: 0 auto; padding: 16px; }
+.header { position: sticky; top: 0; z-index: 10; background: linear-gradient(180deg, rgba(10,10,10,0.98), rgba(10,10,10,0.92)); border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
+.header-inner { display:flex; align-items:center; gap:12px; padding: 12px 16px; }
+.header .title { font-size: 1.777777rem; font-weight: 700; }
+.badge { font-size:.75rem; color: var(--muted); background: var(--bg-alt); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); }
+
+.main { padding: 16px; }
+.summary { background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 16px; margin: 12px 0 24px; }
+.summary p { margin-top:0; color: var(--muted); }
+.toc { list-style: none; padding-left: 0; margin: 0; }
+.toc li { margin: 6px 0; }
+.toc li::before { content: '• '; color: var(--accent); }
+
+h1,h2,h3,h4,h5,h6 { scroll-margin-top: 80px; }
+h2 { margin-top: 28px; border-bottom: 1px dashed var(--border); padding-bottom: 6px; font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+p, ul li { line-height: 1.6; }
+.table-wrap { overflow-x: auto; border:1px solid var(--border); border-radius: 12px; margin: 12px 0; }
+table { width: 100%; border-collapse: collapse; min-width: 420px; }
+th, td { border-bottom: 1px solid var(--border); padding: 10px; text-align: left; }
+th { background: var(--bg-alt); }
+img { max-width: 90% !important; }
+.toc-table { border-spacing: 0; }
+.toc-table th { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+.toc-table td { padding: 8px 16px; }
+.toc-table tr:hover { background: rgba(154, 220, 255, 0.05); }
+.toc-table .main-section { font-weight: 600; font-size: 1rem; }
+.toc-table .sub-section { font-weight: 400; font-size: 0.9rem; padding-left: 32px; color: var(--muted); }
+.toc-table .sub-section a { color: var(--muted); }
+.toc-table .sub-section:hover a { color: var(--accent); }
+.toc-table .sub-sub-section { font-weight: 300; font-size: 0.85rem; padding-left: 48px; color: var(--muted); opacity: 0.8; }
+.toc-table .sub-sub-section a { color: var(--muted); }
+.toc-table .sub-sub-section:hover a { color: var(--accent); }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.gallery figure { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 8px; }
+.gallery img { width: 100%; height: auto; display: block; border-radius: 8px; }
+.gallery figcaption { font-size: .8rem; color: var(--muted); margin-top: 6px; word-break: break-all; }
+
+.footer { max-width: 100%; position: fixed; width: 100%; bottom: 0; background: #0a0a0a; color: var(--muted); font-size: .85rem; padding: 5px 16px !important; }
+.footer p { line-height: 1; }
+/* Mobile-first tweaks */
+.container { padding: 12px; }
+.title { font-size: 1.5rem; }
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  .title { font-size: 1.75rem; }
+}
+
+/* Desktop */
+@media (min-width: 960px) {
+  .container { padding: 16px; }
+  .title { font-size: 2rem; }
+}
+
+.accordion { display: flex; flex-direction: column; gap: 16px; }
+.accordion-item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.accordion-trigger { width: 100%; background: none; border: none; color: var(--text); font: inherit; text-align: left; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; font-size: 1.222222rem; font-weight: 600; }
+.accordion-trigger:hover, .accordion-trigger:focus-visible { background: rgba(154, 220, 255, 0.08); outline: 1px solid var(--accent); outline-offset: 2px; }
+.accordion-icon { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; display: inline-block; pointer-events: none; }
+.accordion-panel { border-top: 1px solid var(--border); padding: 0 20px 20px; background: var(--card); }
+.accordion-panel[hidden] { display: none; }
+.accordion-content > :first-child { margin-top: 20px; }
+.accordion-content > * { margin-left: 0; }
+
+</style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner container">
+        <div class="title">Game Help</div> <span><i>v.1.0</i></span>
+      </div>
+    </header>
+    <main class="main container">
+      <article>
+        <div class="accordion" id="game-help-accordion">
+          <section class="accordion-item" id="introduction">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-introduction">
+              <span>Introduction</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-introduction" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>Baccarat is a classic casino game that is well known, and enjoyed by players across the globe. It holds appeal among high-stakes players and is widely popular in Asian markets. The game is known for its straightforward mechanics and engaging pace.</p>
+                <p>The goal is simple: predict which side, either the Player or the Banker, will have a hand total closest to 9.</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="how-to-play">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-how-to-play">
+              <span>How to Play</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-how-to-play" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>To start playing, choose your bet amount and place your wager on the Player, Banker, or Tie bet spots. You can adjust your bets as long as the betting time is still open.</p>
+                <p>Once betting closes, the Dealer deals four cards in total: the 1st and 3rd cards go to the Player side, while the 2nd and 4th cards go to the Banker side. The Dealer scans the cards starting with the Player’s hand.</p>
+                <p>If either side requires a third card, the Dealer draws it according to the Third Card Rule.</p>
+                <p>When all necessary cards have been dealt, the round concludes. The side with a hand total closest to 9 wins. If both sides have the same total, the round results in a Tie.</p>
+                <p>Winning bets are highlighted, and payouts are made based on your selected bets. Your winnings will also be displayed on your screen.</p>
+                <p>Once the round ends, the cards are cleared from the table, and a new betting phase begins.</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="card-values">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-card-values">
+              <span>Card Values</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-card-values" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>The game is played with eight standard decks of 52 cards. Only the numbers on the cards matter. The suits of the cards (hearts, spades, diamonds, and clubs), don’t make any difference.</p>
+                <div class='table-wrap'>
+                   <table>
+                      <tr>
+                         <th>Card</th>
+                         <th>Value</th>
+                      </tr>
+                      <tr>
+                         <td>A (Ace)</td>
+                         <td>1</td>
+                      </tr>
+                      <tr>
+                         <td>2-9</td>
+                         <td>Face value (e.g., 4 = 4)</td>
+                      </tr>
+                      <tr>
+                         <td>10, J, Q, K</td>
+                         <td>0</td>
+                      </tr>
+                   </table>
+                </div>
+                <p>The Player and Banker hands are scored by adding the values of their cards. The highest possible total is 9. If a hand’s total goes over 9, only the last digit counts.</p>
+                <p>Here are a few examples:</p>
+                <ul>
+                <li>6 + 4 = 10 → becomes 0</li>
+                <li>3 + 9 = 12 → becomes 2</li>
+                <li>2 + 2 + 7 = 11 → becomes 1</li>
+                <li>K + 5 = 5</li>
+                <li>A + 8 = 9</li>
+                <li>7 + 7 = 14 → becomes 4</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="the-third-card-rule">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-the-third-card-rule">
+              <span>The Third Card Rule</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-the-third-card-rule" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>A round concludes immediately after the initial four cards are dealt without additional cards being drawn in these scenarios:</p>
+                <ul><li>If either the Player or Banker hand totals 8 or 9 points from their first two cards (a "Natural hand").</li>
+                <li>If the Player has 6 points and the Banker has 7 points, or vice versa.</li>
+                <li>If both hands result in a Tie with 6, 7, 8, or 9 points.</li></ul>
+                <p>If both hands have an initial two-card total between 0 and 7, the Third Card Rule determines whether a third card is drawn. The Player’s hand is always resolved first.</p>
+                <p><strong>For the Player's hand to draw:</strong></p>
+                <div class='table-wrap'>
+                   <table>
+                      <tr>
+                         <th>Total of Player’s first 2 cards</th>
+                         <th>Action</th>
+                      </tr>
+                      <tr>
+                         <td>0,1,2,3,4,5</td>
+                         <td>Draw 3rd Card</td>
+                      </tr>
+                      <tr>
+                         <td>6,7</td>
+                         <td>Player Stands</td>
+                      </tr>
+                      <tr>
+                         <td>Natural 8 or 9</td>
+                         <td>Both Hands Stand</td>
+                      </tr>
+                   </table>
+                </div>
+                <p><strong>For the Banker's hand to draw:</strong></p>
+                <div class='table-wrap'>
+                   <table>
+                      <thead>
+                         <tr>
+                            <th rowspan="2">Total of <br>Banker's first<br> 2 cards</th>
+                            <th colspan="10">3rd card drawn by the player:</th>
+                         </tr>
+                         <tr>
+                            <th>0</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         <tr>
+                            <td>0</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                         </tr>
+                         <tr>
+                            <td>1</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                         </tr>
+                         <tr>
+                            <td>2</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                         </tr>
+                         <tr>
+                            <td>3</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>S</td>
+                            <td>D</td>
+                         </tr>
+                         <tr>
+                            <td>4</td>
+                            <td>S</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>5</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>6</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>D</td>
+                            <td>D</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>7</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>8</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                         <tr>
+                            <td>9</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                            <td>S</td>
+                         </tr>
+                      </tbody>
+                   </table>
+                </div>
+                <p>(D = Draw; S = Stand)</p>
+                <p>If the Player's first two cards total 6 or 7 points and the Banker's first two cards total less than 6, the Banker <em>must</em> draw an additional card.</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="main-bets">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-main-bets">
+              <span>Main Bets</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-main-bets" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>Below is a table containing the Main Bet spots, their payouts, and the win condition.</p>
+                <div class='table-wrap'><table><tr><th>Bet spot</th><th>Payout</th><th>Win condition</th></tr><tr><td>Player</td><td>1:1</td><td>Player total &gt; Banker total</td></tr><tr><td>Banker</td><td>0.95:1</td><td>Player total &lt; Banker total</td></tr><tr><td>Tie</td><td>8:1</td><td>Player total = Banker total</td></tr></table></div>
+                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><i><strong>Important note</strong>: Low risk betting should not be allowed. (These are bets that allow players to exploit the bonusing system)</i></p></div>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="side-bets">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-side-bets">
+              <span>Side Bets</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-side-bets" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>Below are the side bets that the player may choose to bet on. It is not required to place a main bet. Players may choose to bet on any or all side bets.</p>
+                <ul><li>Player Pair</li>
+                <li>Banker Pair</li>
+                <li>Either Pair</li>
+                <li>Perfect Pair</li>
+                <li>Player Bonus</li>
+                <li>Banker Bonus</li></ul>
+                <h4><em><strong>Pair side bets</strong></em></h4>
+                <div class='table-wrap'><table><tr><th>Bet Spot</th><th>Payout</th><th>Win condition</th></tr><tr><td>Player Pair</td><td>11:1</td><td>First 2 cards of Player are a pair of any kind</td></tr><tr><td>Banker Pair</td><td>11:1</td><td>First 2 cards of Banker are a pair of any kind</td></tr><tr><td>Either Pair</td><td>5:1</td><td>First 2 cards of either or both sides (player or banker) are a pair of any kind</td></tr><tr><td>Perfect Pair</td><td>25:1</td><td>First 2 cards of either or both sides (player or banker) are a perfect pair</td></tr></table></div>
+                <h4><em>Kinds of pairs:</em></h4>
+                <ul><li>Perfect Pair – two identical cards (e.g., two Kings of Hearts).</li>
+                <li>Colored Pair – two cards of the same value and color but different suits (e.g., 5 of Hearts and 5 of Diamonds).</li>
+                <li>Mixed Pair – two cards of different suits and colors but the same value (e.g., 7 of Spades and 7 of Diamonds).</li>
+                </ul>
+                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><strong>Important note:</strong> After <em>60 game rounds, the side bets Player Pair, Banker Pair, Perfect Pair and Either Pair will be disabled.</em></p></div>
+                <p><em>Player/Banker Bonus Side Bets</em></p>
+                <p><em>Player Bonus or Banker Bonus is won with either a natural win or a non-natural win of at least 4 points.</em></p>
+                <p><em>Below are the payouts for each outcome:</em></p>
+                <div class='table-wrap'><table><tr><th>Outcome</th><th>Payout</th></tr><tr><td>Wins with a non-natural hand by 9 points</td><td>30:1</td></tr><tr><td>Wins with a non-natural hand by 8 points</td><td>10:1</td></tr><tr><td>Wins with a non-natural hand by 7 points</td><td>6:1</td></tr><tr><td>Wins with a non-natural hand by 6 points</td><td>4:1</td></tr><tr><td>Wins with a non-natural hand by 5 points</td><td>2:1</td></tr><tr><td>Wins with a non-natural hand by 4 points</td><td>1:1</td></tr><tr><td>Natural Win</td><td>1:1</td></tr><tr><td>Natural Tie</td><td>PUSH (Returns the Player’s previous bet amount)</td></tr></table></div>
+                <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><i><strong>Important Note:</strong>  After 44 game rounds, the side bets Player Bonus and Banker Bonus will be disabled.</i></p></div>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="placing-bets">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-placing-bets">
+              <span>Placing Bets</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-placing-bets" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>The Table Name shows which table you’re playing at, and the Table Limits display the minimum and maximum bets allowed.</p>
+                <p>By clicking this area, you’ll open the Payouts &amp; Limits window, where you can see the full betting limits and payout odds for each bet type.</p>
+                <img loading='lazy' src='../images/image6.png' width="90%" alt='Table limits modal'/>
+                <p>The timer shows how much time is left to place bets.</p>
+                <img loading='lazy' src='../images/image17.png' width="15%" alt='Bet timer'/>
+                <p>The Chip Tray displays the value of the chips you may select to place. You will only be allowed to choose chip values within your balance.</p>
+                <img loading='lazy' src='../images/image18.png' width="90%" alt='Chip tray'/>
+                <p>The Re-bet button allows you to repeat your most recent bet from the game session if within budget. After pressing Re-bet, it is replaced with the double button.</p>
+                <img loading='lazy' src='../images/image15.png' alt='Re-bet button'/>
+                <p>The Double button simply doubles all bets you have placed until your balance or the limit allows.</p>
+                <img loading='lazy' src='../images/image4.png' alt='Double button'/>
+                <p>Undo will revert your most previous action one by one. This can be a chip being placed or the double button being used. You cannot undo after the betting phase ends.</p>
+                <img loading='lazy' src='../images/image8.png' alt='Undo button'/>
+                <p>The balance indicator shows how much funds you still have in your chosen currency. Total Bet shows how much you’ve placed in total for the current round.</p>
+                <img loading='lazy' src='../images/image7.png' width="90%" alt='Balance indicator'/>
+                <p>The game ID is a unique ID for each game round that may be used as reference to settle disputes regarding specific games. The Time indicator shows your current local time.</p>
+                <img loading='lazy' src='../images/image9.png' width="25%" alt='Game ID and time'/>
+                <p>The current time is displayed and synced with the server.</p>
+                <img loading='lazy' src='../images/image10.png' width="50%" alt='Clock indicator'/>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="return-to-player">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-return-to-player">
+              <span>Return to Player</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-return-to-player" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>The optimal theoretical Return to Player (RTP) in Baccarat is 98.94% based on the optimal strategy for Banker bet.</p>
+                <div class='table-wrap'><table><tr><th>Bet Type</th><th>Return to Player</th></tr><tr><td>Player</td><td>98.76%</td></tr><tr><td>Banker</td><td>98.94%</td></tr><tr><td>Tie</td><td>85.64%</td></tr></table></div>
+                <p>The theoretical RTP for side bets:</p>
+                <div class='table-wrap'><table><tr><th>Bet Type</th><th>Return to Player</th></tr><tr><td>Player Pair</td><td>89.64%</td></tr><tr><td>Banker Pair</td><td>89.64%</td></tr><tr><td>Either Pair</td><td>86.29%</td></tr><tr><td>Perfect Pair</td><td>86.97%</td></tr><tr><td>Player Bonus</td><td>97.35%</td></tr><tr><td>Banker Bonus</td><td>90.63%</td></tr></table></div>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="roadmaps">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-roadmaps">
+              <span>Roadmaps</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-roadmaps" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>In Baccarat, trends and streaks are tracked using charts known as <em>“roadmaps”.</em> These roadmaps provide a pictorial record of past round outcomes and shoe statistics, offering players insights that may help in anticipating future results.</p>
+                <p>Roadmaps start to record results with the first round of a new shoe and continue until the cutting card is reached. Once the final hand of the shoe is dealt, all records are cleared, and the roadmap resets with the next shoe.</p>
+                <p>There are five traditional roadmaps used in Baccarat:</p>
+                <ul style="font-weight: bold;"><li>Big Road</li>
+                <li>Big Eye Boy</li>
+                <li>Small Road</li>
+                <li>Cockroach Road</li>
+                <li>Bead Plate</li></ul>
+                <h4 id='big-road'><strong>Big Road</strong></h4>
+                <p>The Big Road is the primary roadmap, from which all other derived roads are based. Symbols used in the Big Road include blue hollow circles for Player wins and red hollow circles for Banker wins.</p>
+                <p>The Big Road begins with the first result of a shoe, placed in the top-left corner. Subsequent results of the same side are recorded directly below, while opposite sides initiate a new column.</p>
+                <p>On the Big Road, a Tie is indicated by a green line drawn across the last result. In cases of multiple consecutive ties, a small number appears on the green line, showing the total number of ties. If a Tie occurs before any Banker or Player result is recorded, the green Tie line will be displayed in the top-left cell of the grid. Once the first Banker or Player result is known, its circle will appear in the same cell, beneath the Tie line.</p>
+                <p>When there are more than six consecutive wins for either the Banker or the Player, this sequence is referred to as "the dragon." A common Baccarat strategy involves "following the dragon," repeatedly choosing the same side until it switches.</p>
+                <h4 id='derived-roads'><strong>The Derived Roads</strong></h4>
+                <p>The Big Eye Boy, Small Road, and Cockroach Road are all derived from the Big Road and illustrate various patterns within it. These "predictive roads" reveal whether patterns exist.</p>
+                <p>Each derived road uses specific symbols: empty circles for the Big Eye Boy, solid circles for the Small Road, and slashes for the Cockroach Road. Red symbols indicate predictability, while blue symbols suggest “chaos” or no discernible pattern. These colors do not represent Banker or Player outcomes.</p>
+                <p>Derived roads do not begin at the very start of the shoe. Instead, they begin with the hand immediately following the first hand in specific columns of the Big Road:</p>
+                <ul>
+                <li><strong>Big Eye Boy:</strong> Starts with the second result in the second column.</li>
+                <li><strong>Small Road:</strong> Starts with the second result in the third column.</li>
+                <li><strong>Cockroach Road:</strong> Starts with the second result in the fourth column.</li>
+                </ul>
+                <p>Once a derived road has begun, a new red or blue symbol is added after every subsequent hand. Users can click or tap on any derived road to view its content in more detail.</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="bead-plate">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-bead-plate">
+              <span>Bead Plate</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-bead-plate" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>The Bead Plate tracks every hand in a shoe in a straightforward manner. Green circles in separate cells on the Bead Plate denote ties.</p>
+                <p>Results are displayed starting from the top-left of the grid, filling vertically down each of the six cells in a column. A new column begins once the previous one is full, irrespective of the hand's outcome.</p>
+                <p>Tapping or clicking the Bead Plate statistics area will show results as letters (P for Player, B for Banker, T for Tie).</p>
+                <img loading='lazy' src='../images/image1.png' width="90%" alt='Bead plate example'/>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="roadmap-probing">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-roadmap-probing">
+              <span>Roadmap Probing (Ask Player, Ask Banker)</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-roadmap-probing" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>Roadmap Probing helps players in predicting the outcome of the next round. It shows the trends in the Big Road, Big Eye Boy, Small Road, Cockroach Road and Bead Plate if either a Player or a Banker result were added.</p>
+                <p>Click/tap the Ask Player or Ask Banker button to see the trends, if the next result were a Player or Banker win, respectively.</p>
+                <img loading='lazy' src='../images/image5.png' width="33%" alt='Roadmap probing buttons'/>
+                <p>The symbols on the buttons represent what the derived roads entry would be if Player or Banker wins.</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="navigation-controls">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-navigation-controls">
+              <span>Navigation Controls</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-navigation-controls" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <!-- <p>Navigation controls keep chat, help, and configuration tools within reach so you can switch tasks without leaving the table. Use them to open Player Chat, toggle settings, review history, or access game assistance.</p>-->
+                <p><strong>Settings</strong></p>
+                <p>Opening the settings allows you to adjust various preferences.</p>
+                <p>Use the audio controls to tune the mix: studio sounds capture ambient noise from the table, while game effects cover
+                  UI interactions.</p>
+                <img loading='lazy' src='../images/image16.png' width="25%" alt='Sound settings' />
+                <p>The Game History lets you review all of your past games and their results. Click a game to see the Date, Game type,
+                  Bet, and Win/Lose.</p>
+                <img loading='lazy' src='../images/image12.png' width="25%" alt='Game history list' />
+                <p>The Game Help will display a comprehensive guide of how to play the game and navigate around the interface.</p>
+                <img loading='lazy' src='../images/image13.png' width="25%" alt='Game help panel' />
+                <p>Under the tab General the following settings are available:</p>
+                <ul>
+                  <li>Display Name</li>
+                  <li>Language</li>
+                </ul>
+                <p>Under Video:</p>
+                <ul>
+                  <li>Play with video toggle</li>
+                  <li>Video quality</li>
+                </ul>
+                <p>Under Sound:</p>
+                <ul>
+                  <li>All sounds slider</li>
+                  <li>Studio sounds slider</li>
+                  <li>Game effects slider</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <!-- <section class="accordion-item" id="player-chat">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-player-chat">
+              <span>Player Chat</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-player-chat" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>The chat window, accessible via the Chat button, allows interaction with the dealer and other players. The dealer is available to answer game-related questions directly.</p>
+                <img loading='lazy' src='../images/image3.png' width="25%" alt='Player chat window'/>
+                <p>Customer Support monitors all chat messages. Players who misuse the chat feature, including abusing the Dealer or other players, or using inappropriate or offensive language, may have their chat privileges disabled.</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="settings">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-settings">
+              <span>Settings</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-settings" class="accordion-panel" hidden>
+              <div class="accordion-content">
+              </div>
+            </div>
+          </section>-->
+          <section class="accordion-item" id="card-shuffle-and-change">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-card-shuffle-and-change">
+              <span>Card Shuffle and Change</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-card-shuffle-and-change" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p><strong>Shuffling:</strong></p>
+                <ul>
+                <li><strong>Timing:</strong> Shuffling occurs immediately after a game round concludes and the cutting card is removed from the shoe.</li>
+                <li><strong>Method:</strong> Cards are shuffled either by a dedicated Shuffler at a shuffling table or by the Dealer at the gaming table, adhering to established shuffling procedures.</li>
+                </ul>
+                <p><strong>Cutting Card and Last Hand:</strong></p>
+                <ul>
+                <li>When the cutting card appears during gameplay, it is removed.</li>
+                <li>The Dealer will then announce that the current hand is the final hand of the shoe.</li>
+                <li>Upon completion of this last hand, no further cards are dealt until either a shoe change or a shuffle procedure is initiated.</li>
+                </ul>
+                <p><strong>Shoe Change Procedure:</strong></p>
+                <ul>
+                <li><strong>Discretionary Changes:</strong> Shift management reserves the sole discretion to initiate a shoe change before the cutting card is even removed.</li>
+                <li><strong>Mandatory Changes:</strong> A complete card change procedure is performed once every 24 hours or in the following specific scenarios:
+                <ul><li>The table has been reactivated after a period of inactivity.</li>
+                <li>The video stream for the table became unavailable.</li>
+                <li>More than three cards accidentally fell to the floor during a game round.</li>
+                <li>A card with a defective barcode is discovered within the shoe.</li></ul></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="game-inconveniences">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-game-inconveniences">
+              <span>Game Inconveniences</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-game-inconveniences" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>Should any error occur during a Baccarat game—whether related to the game itself, the system, game procedure, or transaction activity—the game round will be temporarily paused. The Shift Manager will be immediately notified, and all players will receive an on-screen notification that the issue is under investigation.</p>
+                <p>If the error can be resolved promptly, the game will resume as normal. If immediate resolution is not possible, the game round will be canceled, and all initial bets will be refunded to participating players.</p>
+                <p>For any game-related concerns, please contact Live Support and provide your Game ID number.</p>
+              </div>
+            </div>
+          </section>
+          <section class="accordion-item" id="disconnection-policy">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-disconnection-policy">
+              <span>Disconnection Policy</span>
+              <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
+            </button>
+            <div id="panel-disconnection-policy" class="accordion-panel" hidden>
+              <div class="accordion-content">
+                <p>While playing online, disconnections can occasionally occur. Should this happen, you can review your winnings in the History window. For any inquiries regarding game outcomes, please contact Live Support directly within the game or reach out to Casino Customer Support, ensuring you provide your Game ID number.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+    <script>
+      const accordionButtons = document.querySelectorAll('.accordion-trigger, .accordion-subtrigger');
+      accordionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const expanded = button.getAttribute('aria-expanded') === 'true';
+          const panelId = button.getAttribute('aria-controls');
+          const panel = document.getElementById(panelId);
+          button.setAttribute('aria-expanded', String(!expanded));
+          if (panel) {
+            panel.hidden = expanded;
+          }
+          const icon = button.querySelector('.accordion-icon');
+          if (icon) {
+            icon.src = expanded ? '../images/down-arrow.png' : '../images/up-arrow.png';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
