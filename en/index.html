@@ -25,7 +25,7 @@ a:hover { text-decoration: underline; }
 .header { position: sticky; top: 0; z-index: 10; background: linear-gradient(180deg, rgba(10,10,10,0.98), rgba(10,10,10,0.92)); border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
 .header-inner { display:flex; align-items:center; gap:12px; padding: 12px 16px; }
 .header .title { font-size: 1.777777rem; font-weight: 700; margin: 0 auto; display: inline-flex; align-items: center; gap: 10px; }
-.badge { font-size:.75rem; color: var(--muted); background: var(--bg-alt); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); }
+.badge { font-size:.75rem; color: var(--muted); background: var(--bg-alt); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); font-weight: 400; }
 
 .main { padding: 16px; }
 .summary { background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 16px; margin: 12px 0 24px; }
@@ -94,7 +94,7 @@ img { max-width: 90% !important; }
   <body>
     <header class="header">
       <div class="header-inner container">
-        <div class="title"><img src="../images/help.png" height="25px" style="height: 25px;" alt="Help" /> <span>Game Help</span></div> <span class="badge"><i>v.1.0</i></span>
+        <div class="title"><img src="../images/help.png" height="25px" style="height: 25px;" alt="Help" /> <span>Game Help</span> <span class="badge"><i>v.1.0</i></span></div> 
       </div>
     </header>
     <main class="main container">
