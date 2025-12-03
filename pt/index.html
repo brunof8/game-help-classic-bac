@@ -83,8 +83,8 @@ img { max-width: 90% !important; }
 
 .accordion { display: flex; flex-direction: column; gap: 16px; }
 .accordion-item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-.accordion-trigger { width: 100%; background: none; border: none; color: var(--text); font: inherit; text-align: left; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; font-size: 1.222222rem; font-weight: 600; }
-.accordion-trigger:hover, .accordion-trigger:focus-visible { background: rgba(154, 220, 255, 0.08); outline: 1px solid var(--accent); outline-offset: 2px; }
+.accordion-trigger { width: 100%; background: none; border: none; color: var(--text); font: inherit; text-align: left; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; font-size: 1.222222rem; font-weight: 400; }
+.accordion-trigger:hover, .accordion-trigger:focus-visible { background: rgba(255,255,255, 0.08); outline: 1px solid var(--accent); outline-offset: 2px; }
 .accordion-icon { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; display: inline-block; pointer-events: none; }
 .accordion-panel { border-top: 1px solid var(--border); padding: 0 20px 20px; background: var(--card); }
 .accordion-panel[hidden] { display: none; }
@@ -96,7 +96,7 @@ img { max-width: 90% !important; }
   <body>
     <header class="header">
       <div class="header-inner container">
-        <div class="title">Ajuda do Jogo</div> <span><i>v.1.0</i></span>
+        <div class="title">Ajuda do Jogo</div> <span class="badge"><i>v.1.0</i></span>
       </div>
     </header>
     <main class="main container">
@@ -109,8 +109,8 @@ img { max-width: 90% !important; }
             </button>
             <div id="panel-introduction" class="accordion-panel" hidden>
               <div class="accordion-content">
-                <p>Baccarat é um jogo de casino clássico que é bem conhecido e apreciado por jogadores em todo o mundo. Tem apelo entre jogadores de apostas altas e é amplamente popular nos mercados asiáticos. O jogo é conhecido por sua mecânica direta e ritmo envolvente.</p>
-                <p>O objetivo é simples: prever qual lado, o Jogador ou a Banca, terá um total de mão mais próximo de 9.</p>
+                <p>Baccarat é um clássico jogo de cassino amplamente conhecido e apreciado por jogadores ao redor do mundo. Ele atrai especialmente apostadores de alto limite e é muito popular nos mercados asiáticos. O jogo é reconhecido por sua mecânica simples e ritmo envolvente.</p>
+                <p>O objetivo é simples: prever qual lado — Jogador (Player) ou Banca (Banker) — terá a mão com total mais próximo de 9.</p>
               </div>
             </div>
           </section>
@@ -121,12 +121,12 @@ img { max-width: 90% !important; }
                     </button>
                     <div id="panel-how-to-play" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>Para começar a jogar, escolha o valor da sua aposta e coloque sua aposta nos locais de aposta do Jogador, Banca ou Empate. Você pode ajustar suas apostas enquanto o tempo de apostas ainda estiver aberto.</p>
-                        <p>Uma vez que as apostas fechem, o Dealer distribui quatro cartas no total: a 1ª e 3ª cartas vão para o lado do Jogador, enquanto a 2ª e 4ª cartas vão para o lado da Banca. O Dealer escaneia as cartas começando pela mão do Jogador.</p>
-                        <p>Se qualquer lado precisar de uma terceira carta, o Dealer a puxa de acordo com a Regra da Terceira Carta, que explicaremos mais adiante.</p>
-                        <p>Quando todas as cartas necessárias foram distribuídas, a rodada termina. O lado com um total de mão mais próximo de 9 vence. Se ambos os lados têm o mesmo total, a rodada resulta em Empate.</p>
-                        <p>Apostas vencedoras são destacadas, e pagamentos são feitos com base nas suas apostas selecionadas. Seus ganhos também serão exibidos na sua tela.</p>
-                        <p>Assim que a rodada termina, as cartas são retiradas da mesa, e uma nova fase de apostas começa.</p>
+                        <p>Para começar, escolha o valor da sua aposta e coloque suas fichas nos campos Jogador, Banca ou Empate. Você pode ajustar suas apostas enquanto o tempo de aposta estiver aberto.</p>
+                        <p>Quando o tempo de aposta encerra, o Dealer distribui quatro cartas no total: a 1ª e 3ª cartas vão para o Jogador, enquanto a 2ª e 4ª cartas vão para o Banca. O Dealer escaneia as cartas começando pela mão do Jogador.</p>
+                        <p>Se algum dos lados precisar de uma terceira carta, o Dealer a sacará conforme a Regra da Terceira Carta, explicada logo abaixo.</p>
+                        <p>Quando todas as cartas necessárias forem distribuídas, a rodada é concluída. O lado com o total mais próximo de 9 vence. Se ambos os lados tiverem o mesmo total, a rodada termina em Empate.</p>
+                        <p>As apostas vencedoras são destacadas, e os pagamentos são feitos de acordo com as apostas selecionadas. Seus ganhos também são exibidos na tela.</p>
+                        <p>Quando a rodada termina, as cartas são removidas da mesa e uma nova fase de apostas começa.</p>
                       </div>
                     </div>
                   </section>
@@ -137,20 +137,21 @@ img { max-width: 90% !important; }
                     </button>
                     <div id="panel-card-values" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>O jogo é jogado com oito baralhos padrão de 52 cartas. Apenas os números nas cartas importam. Os naipes das cartas (copas, espadas, ouros e paus) não fazem diferença.</p>
+                        <p>O jogo utiliza oito baralhos padrão de 52 cartas. Apenas os números das cartas importam. Os naipes (copas, espadas, ouros e paus) não têm influência no resultado.</p>
+                        <p>Valor das cartas:</p>
                         <div class='table-wrap'>
                            <table>
                               <tr>
-                                 <th>Carta</th>
-                                 <th>Valor</th>
+                                 <th>Card</th>
+                                 <th>Value</th>
                               </tr>
                               <tr>
-                                 <td>A(Ás)</td>
+                                 <td>A(Ace)</td>
                                  <td>1</td>
                               </tr>
                               <tr>
                                  <td>2-9</td>
-                                 <td>Valor nominal (ex., 4 = 4)</td>
+                                 <td>Face value (e.g., 4 = 4)</td>
                               </tr>
                               <tr>
                                  <td>10, J, Q, K</td>
@@ -158,18 +159,16 @@ img { max-width: 90% !important; }
                               </tr>
                            </table>
                         </div>
-                        <p>O jogo usa 8 baralhos padrão de 52 cartas.</p>
-                        <p>No Baccarat, apenas o valor numérico de cada carta importa — naipes (copas, espadas, etc.) não afetam o resultado.</p>
-                        <p>As mãos do Jogador e da Banca são pontuadas somando os valores das suas cartas. O total mais alto possível é 9.</p>
-                        <p>Se o total de uma mão passar de 9, apenas o último dígito conta. Por exemplo, um total de 14 torna-se 4.</p>
-                        <p>Aqui estão alguns exemplos:</p>
+                        <p>As mãos do Jogador e do Banca são calculadas somando os valores das cartas. O maior total possível é 9.</p>
+                        <p>Se o total da mão ultrapassar 9, somente o último dígito é considerado.<br> Exemplo: 14 → 4</p>
+                        <p><strong>Exemplos:</strong></p>
                         <ul>
-                        <li>6 + 4 = 10 → torna-se 0</li>
-                        <li>3 + 9 = 12 → torna-se 2</li>
-                        <li>2 + 2 + 7 = 11 → torna-se 1</li>
+                        <li>6 + 4 = 10 → 0</li>
+                        <li>3 + 9 = 12 → 2</li>
+                        <li>2 + 2 + 7 = 11 → 1</li>
                         <li>K + 5 = 5</li>
                         <li>A + 8 = 9</li>
-                        <li>7 + 7 = 14 → torna-se 4</li>
+                        <li>7 + 7 = 14 → 4</li>
                         </ul>
                       </div>
                     </div>
@@ -181,41 +180,42 @@ img { max-width: 90% !important; }
                     </button>
                     <div id="panel-the-third-card-rule" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>Uma rodada termina imediatamente após as quatro cartas iniciais serem distribuídas (uma "Mão pequena") sem cartas adicionais sendo puxadas nestes 3 cenários:</p>
-                        <ul><li>Se a mão do Jogador ou da Banca totalizar 8 ou 9 pontos de suas duas primeiras cartas (isso é chamado de "Mão natural").</li>
-                        <li>Se o Jogador tem 6 pontos e a Banca tem 7 pontos, ou vice-versa.</li>
-                        <li>Se ambas as mãos resultam em Empate com 6, 7, 8 ou 9 pontos.</li></ul>
-                        <p>Se tanto as mãos do Jogador quanto da Banca têm um total inicial de duas cartas entre 0 e 7, a Regra da Terceira Carta é aplicada para determinar se uma terceira carta deve ser distribuída para qualquer mão. A mão do Jogador é sempre considerada primeiro.</p>
-                        <p><strong>Para a mão do Jogador puxar:</strong></p>
+                        <p>Uma rodada termina imediatamente após as quatro primeiras cartas serem distribuídas, sem cartas adicionais, nos seguintes cenários:</p>
+                        <ul><li>Se Jogador ou Banca tiver 8 ou 9 pontos (mão “Natural”).</li>
+                        <li>Se o Jogador tiver 6 e o Banca 7, ou vice-versa.</li>
+                        <li>Se ambas as mãos empatarem com 6, 7, 8 ou 9.</li></ul>
+                        <p>Se ambas as mãos tiverem entre 0 e 7 pontos, aplica-se a Regra da Terceira Carta para determinar se uma terceira carta será puxada. A mão do Jogador é sempre considerada primeiro.</p>
+                        <p>Jogador — Ação para comprar carta:</p>
                         <div class='table-wrap'>
                            <table>
                               <tr>
-                                 <th>Total das primeiras 2 cartas do Jogador:</th>
+                                 <th>Total das 2 primeiras cartas:</th>
                                  <th>Ação</th>
                               </tr>
                               <tr>
                                  <td>0,1,2,3,4,5</td>
-                                 <td>Puxar 3ª Carta</td>
+                                 <td>Draw 3rd Card</td>
                               </tr>
                               <tr>
                                  <td>6,7</td>
-                                 <td>Jogador Para</td>
+                                 <td>Player Stands</td>
                               </tr>
                               <tr>
                                  <td>Natural 8 ou 9</td>
-                                 <td>Ambas as Mãos Param</td>
+                                 <td>Both Hands Stand</td>
                               </tr>
                            </table>
                         </div>
-                        <p><strong>Para a mão da Banca puxar:</strong></p>
+                        <p><em>Para que a mão da Banca compre (receba) uma carta:</em></p>
                         <div class='table-wrap'>
                            <table>
                               <thead>
                                  <tr>
-                                    <th rowspan="2">Total das<br>primeiras 2 cartas<br>da Banca</th>
-                                    <th colspan="10">3ª carta puxada pelo jogador:</th>
+                                    <th rowspan="2">Total of Banker's first 2 cards</th>
+                                    <th colspan="11">3rd card drawn by the player:</th>
                                  </tr>
                                  <tr>
+                                    <th>No 3rd card</th>
                                     <th>0</th>
                                     <th>1</th>
                                     <th>2</th>
@@ -228,9 +228,10 @@ img { max-width: 90% !important; }
                                     <th>9</th>
                                  </tr>
                               </thead>
-                              <tbody>
+                                 <tbody>
                                  <tr>
                                     <td>0</td>
+                                    <td>D</td>
                                     <td>D</td>
                                     <td>D</td>
                                     <td>D</td>
@@ -254,9 +255,11 @@ img { max-width: 90% !important; }
                                     <td>D</td>
                                     <td>D</td>
                                     <td>D</td>
+                                    <td>D</td>
                                  </tr>
                                  <tr>
                                     <td>2</td>
+                                    <td>D</td>
                                     <td>D</td>
                                     <td>D</td>
                                     <td>D</td>
@@ -278,13 +281,15 @@ img { max-width: 90% !important; }
                                     <td>D</td>
                                     <td>D</td>
                                     <td>D</td>
+                                    <td>D</td>
                                     <td>S</td>
                                     <td>D</td>
                                  </tr>
                                  <tr>
                                     <td>4</td>
-                                    <td>S</td>
                                     <td>D</td>
+                                    <td>S</td>
+                                    <td>S</td>
                                     <td>D</td>
                                     <td>D</td>
                                     <td>D</td>
@@ -296,6 +301,7 @@ img { max-width: 90% !important; }
                                  </tr>
                                  <tr>
                                     <td>5</td>
+                                    <td>D</td>
                                     <td>S</td>
                                     <td>S</td>
                                     <td>S</td>
@@ -309,6 +315,7 @@ img { max-width: 90% !important; }
                                  </tr>
                                  <tr>
                                     <td>6</td>
+                                    <td>S</td>
                                     <td>S</td>
                                     <td>S</td>
                                     <td>S</td>
@@ -332,9 +339,11 @@ img { max-width: 90% !important; }
                                     <td>S</td>
                                     <td>S</td>
                                     <td>S</td>
+                                    <td>S</td>
                                  </tr>
                                  <tr>
                                     <td>8</td>
+                                    <td>S</td>
                                     <td>S</td>
                                     <td>S</td>
                                     <td>S</td>
@@ -358,12 +367,13 @@ img { max-width: 90% !important; }
                                     <td>S</td>
                                     <td>S</td>
                                     <td>S</td>
+                                    <td>S</td>
                                  </tr>
                               </tbody>
                            </table>
                         </div>
-                        <p>(D = Puxar; S = Parar)</p>
-                        <p>Se as primeiras duas cartas do Jogador totalizam 6 ou 7 pontos e as primeiras duas cartas da Banca totalizam menos de 6, a Banca <em>deve</em> puxar uma carta adicional.</p>
+                        <p>(D = Comprar; S = Parar)</p>
+                       <p>Se as primeiras duas cartas do Jogador totalizam 6 ou 7 pontos e as primeiras duas cartas da Banca totalizam menos de 6, a Banca <em>deve</em> puxar uma carta adicional.</p>
                       </div>
                     </div>
                   </section>
@@ -374,9 +384,8 @@ img { max-width: 90% !important; }
                     </button>
                     <div id="panel-main-bets" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>Abaixo está uma tabela contendo os locais das Apostas Principais, seus pagamentos e a condição de vitória.</p>
-                        <div class='table-wrap'><table><tr><th>Local da Aposta</th><th>Pagamento</th><th>Condição de Vitória</th></tr><tr><td>Jogador</td><td>1:1</td><td>Total do Jogador &gt; Total da Banca</td></tr><tr><td>Banca</td><td>0.95:1</td><td>Total do Jogador &lt; Total da Banca</td></tr><tr><td>Empate</td><td>8:1</td><td>Total do Jogador = Total da Banca</td></tr></table></div>
-                        <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><i><strong>Nota importante</strong>: Apostas de baixo risco não devem ser permitidas. (Estas são apostas que permitem aos jogadores explorar o sistema de bônus)</i></p></div>
+                        <p>Abaixo está uma tabela contendo as posições de Aposta Principal, seus pagamentos e a condição de vitória.</p>
+                        <div class='table-wrap'><table><tr><th>Aposta</th><th>Pagamento</th><th>Condição de Vitória</th></tr><tr><td>Jogador</td><td>1:1</td><td>Total do Jogador &gt; Total do Banca</td></tr><tr><td>Banca</td><td>0.95:1</td><td>Total do Jogador &lt; Total do Banca</td></tr><tr><td>Empate</td><td>8:1</td><td>Totais iguais</td></tr></table></div>
                       </div>
                     </div>
                   </section>
@@ -387,137 +396,129 @@ img { max-width: 90% !important; }
                     </button>
                     <div id="panel-side-bets" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>Abaixo estão as apostas laterais nas quais o jogador pode escolher apostar. Não é obrigatório fazer uma aposta principal. Os jogadores podem escolher apostar em qualquer uma ou todas as apostas laterais.</p>
+                        <p>Abaixo estão as apostas secundárias nas quais o jogador pode escolher apostar. Não é obrigatório fazer uma aposta principal. Os jogadores podem apostar em qualquer uma ou em todas as apostas secundárias.</p>
                         <ul><li>Par do Jogador</li>
                         <li>Par da Banca</li>
                         <li>Qualquer Par</li>
                         <li>Par Perfeito</li>
                         <li>Bônus do Jogador</li>
                         <li>Bônus da Banca</li></ul>
-                        <h4><em><strong>Apostas laterais de par</strong></em></h4>
-                        <div class='table-wrap'><table><tr><th>Local da Aposta</th><th>Pagamento</th><th>Condição de Vitória</th></tr><tr><td>Par do Jogador</td><td>11:1</td><td>Primeiras 2 cartas do Jogador são um par de qualquer tipo</td></tr><tr><td>Par da Banca</td><td>11:1</td><td>Primeiras 2 cartas da Banca são um par de qualquer tipo</td></tr><tr><td>Qualquer Par</td><td>5:1</td><td>Primeiras 2 cartas de qualquer lado ou ambos os lados (jogador ou banca) são um par de qualquer tipo</td></tr><tr><td>Par Perfeito</td><td>25:1</td><td>Primeiras 2 cartas de qualquer lado ou ambos os lados (jogador ou banca) são um par perfeito</td></tr></table></div>
-                        <h4><em>Tipos de pares:</em></h4>
-                        <ul><li>Par Perfeito – duas cartas idênticas (ex., dois Reis de Copas).</li>
-                        <li>Par Colorido – duas cartas do mesmo valor e cor mas naipes diferentes (ex., 5 de Copas e 5 de Ouros).</li>
-                        <li>Par Misto – duas cartas de naipes e cores diferentes mas mesmo valor (ex., 7 de Espadas e 7 de Ouros).</li>
+                        <h4><em><strong>Apostas secundárias de par</strong></em></h4>
+                        <div class='table-wrap'><table><tr><th>Aposta</th><th>Pagamento</th><th>Condição</th></tr><tr><td>Par do Jogador</td><td>11:1</td><td>As 2 primeiras cartas do Jogador formam um par</td></tr><tr><td>Par do Banca</td><td>11:1</td><td>As 2 primeiras cartas do Banca formam um par</td></tr><tr><td>Par de Qualquer</td><td>5:1</td><td>Par nas 2 primeiras cartas de qualquer</td></tr><tr><td>Par Perfeito</td><td>25:1</td><td>Par perfeito em qualquer lado</td></tr></table></div>
+                        <h4><em>Tipos de Par:</em></h4>
+                        <ul><li>Par Perfeito: cartas idênticas (ex.: dois Reis de Copas)</li>
+                        <li>Par Colorido: mesmo valor e mesma cor, naipes diferentes</li>
+                        <li>Par Misto: mesmo valor, cores diferentes</li>
                         </ul>
-                        <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><strong>Nota importante:</strong> Após <em>60 rodadas do jogo, as apostas laterais Par do Jogador, Par da Banca, Par Perfeito e Qualquer Par serão desabilitadas.</em></p></div>
-                        <p><em>Apostas Laterais de Bônus do Jogador/Banca</em></p>
-                        <p><em>Bônus do Jogador ou Bônus da Banca é ganho com uma vitória natural ou uma vitória não-natural de pelo menos 4 pontos.</em></p>
+                        <p><strong>Nota importante:</strong> Após 60 rodadas, as apostas de Par são desativadas como proteção contra contagem de cartas.</p>
+                        <p><strong>Apostas Laterais de Bônus Jogador/Banca</strong></p>
+                        <p><em>O Bônus Jogador (Player Bonus) ou Bônus Banca (Banker Bonus) é ganho com uma vitória natural ou uma vitória não-natural de pelo menos 4 pontos.</em></p>
                         <p><em>Abaixo estão os pagamentos para cada resultado:</em></p>
-                        <div class='table-wrap'><table><tr><th>Resultado</th><th>Pagamento</th></tr><tr><td>Vence com mão não-natural por 9 pontos</td><td>30:1</td></tr><tr><td>Vence com mão não-natural por 8 pontos</td><td>10:1</td></tr><tr><td>Vence com mão não-natural por 7 pontos</td><td>6:1</td></tr><tr><td>Vence com mão não-natural por 6 pontos</td><td>4:1</td></tr><tr><td>Vence com mão não-natural por 5 pontos</td><td>2:1</td></tr><tr><td>Vence com mão não-natural por 4 pontos</td><td>1:1</td></tr><tr><td>Vitória Natural</td><td>1:1</td></tr><tr><td>Empate Natural</td><td>PUSH (Retorna o valor da aposta anterior do Jogador)</td></tr></table></div>
-                        <div style="padding: 5px 10px; background-color: #b5b5b5; color: black;"><p><i><strong>Nota Importante:</strong>  Após 44 rodadas do jogo, as apostas laterais Bônus do Jogador e Bônus da Banca serão desabilitadas.</i></p></div>
+                        <div class='table-wrap'><table><tr><th>Resultado</th><th>Pagamento</th></tr><tr><td>Vitória não natural por 9</td><td>30:1</td></tr><tr><td>Vitória não natural por 8</td><td>10:1</td></tr><tr><td>Vitória não natural por 7</td><td>6:1</td></tr><tr><td>Vitória não natural por 6</td><td>4:1</td></tr><tr><td>Vitória não natural por 5</td><td>2:1</td></tr><tr><td>Vitória não natural por 4</td><td>1:1</td></tr><tr><td>Vitória Natural</td><td>1:1</td></tr><tr><td>Empate Natural</td><td>PUSH (retorna a aposta)</td></tr></table></div>
+                        <p><strong>Nota: Após 44 rodadas, Player Bonus e Banker Bonus são desativados.</strong></p>
                       </div>
                     </div>
                   </section>
                   <section class="accordion-item" id="placing-bets">
                     <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-placing-bets">
-                      <span>Fazendo Apostas</span>
+                      <span>Colocando Apostas</span>
                       <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
                     </button>
                     <div id="panel-placing-bets" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>O Nome da Mesa mostra em qual mesa você está jogando, e os Limites da Mesa exibem as apostas mínimas e máximas permitidas.</p>
-                        <p>Clicando nesta área, você abrirá a janela de Pagamentos e Limites, onde pode ver os limites completos de apostas e odds de pagamento para cada tipo de aposta.</p>
-                        <img loading='lazy' src='../images/image6.png' width="90%" alt='image6.png'/>
-                        <p>O cronômetro mostra quanto tempo resta para fazer apostas</p>
-                        <img loading='lazy' src='../images/image17.png' width="15%" alt='image17.png'/>
-                        <p>A Bandeja de Fichas exibe o valor das fichas que você pode selecionar para apostar. Você só poderá escolher valores de fichas dentro do seu saldo.</p>
-                        <img loading='lazy' src='../images/image18.png' width="90%" alt=''/>
-                        <p>O botão Re-apostar permite repetir sua aposta mais recente da sessão de jogo se estiver dentro do orçamento. Depois de pressionar Re-apostar, ele é substituído pelo botão dobrar</p>
-                        <img loading='lazy' src='../images/image15.png' alt=''/>
-                        <p>O botão Dobrar simplesmente dobra todas as apostas que você fez até que seu saldo ou o limite permita.</p>
-                        <img loading='lazy' src='../images/image4.png' alt=''/>
-                        <p>Desfazer reverterá sua ação anterior uma por uma. Isso pode ser uma ficha sendo colocada ou o botão dobrar sendo usado. Você não pode desfazer após a fase de apostas terminar.</p>
-                        <img loading='lazy' src='../images/image8.png' alt=''/>
-                        <p>O indicador de saldo mostra quantos fundos você ainda tem na sua moeda escolhida. Aposta Total mostra quanto você apostou no total para a rodada atual.</p>
-                        <img loading='lazy' src='../images/image7.png' width="90%" alt=''/>
-                        <p>O ID do jogo é um ID único para cada rodada de jogo que pode ser usado como referência para resolver disputas sobre jogos específicos. O indicador de Tempo mostra seu horário local atual.</p>
-                        <img loading='lazy' src='../images/image9.png' width="25%" alt=''/>
-                        <p>O horário atual é exibido e sincronizado com o servidor.</p>
-                        <img loading='lazy' src='../images/image10.png' width="50%" alt=''/>
+                        <p><strong>Nome da Mesa:</strong> mostra a mesa atual e seus limites.</p>
+                        <p><strong>Janela de Pagamentos e Limites:</strong> exibe todos os limites e odds.</p>
+                        <img loading='lazy' src='../images/image6.png' width="90%" alt='Pagamentos e limites'/>
+                        <p><strong>Timer:</strong> mostra o tempo restante para apostar.</p>
+                        <img loading='lazy' src='../images/image17.png' width="15%" alt='Cronômetro de apostas'/>
+                        <p><strong>Bandeja de Fichas:</strong> exibe as fichas disponíveis dentro do seu saldo.</p>
+                        <img loading='lazy' src='../images/image18.png' width="90%" alt='Bandeja de fichas'/>
+                        <p><strong>Reaposta (Re-bet):</strong> repete sua aposta anterior.</p>
+                        <img loading='lazy' src='../images/image15.png' alt='Botão Re-bet'/>
+                        <p><strong>Dobrar (Double):</strong> dobra todas as apostas, se saldo permitir.</p>
+                        <img loading='lazy' src='../images/image4.png' alt='Botão Dobrar'/>
+                        <p><strong>Desfazer (Undo):</strong> desfaz ações anteriores.</p>
+                        <img loading='lazy' src='../images/image8.png' alt='Botão Desfazer'/>
+                        <p><strong>Saldo e Aposta Total:</strong> exibidos na tela.</p>
+                        <img loading='lazy' src='../images/image7.png' width="90%" alt='Saldo e aposta total'/>
+                        <p><strong>ID da Partida:</strong> usado para consultas.</p>
+                        <img loading='lazy' src='../images/image9.png' width="25%" alt='ID da partida'/>
+                        <p><strong>Horário Atual:</strong> sincronizado com o servidor.</p>
+                        <img loading='lazy' src='../images/image10.png' width="50%" alt='Horário atual'/>
                       </div>
                     </div>
                   </section>
-              </div>
-            </div>
-          </section>
-          <section class="accordion-item" id="return-to-player">
+                  <section class="accordion-item" id="return-to-player">
                     <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-return-to-player">
                       <span>Retorno ao Jogador</span>
                       <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
                     </button>
                     <div id="panel-return-to-player" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>O Retorno ao Jogador (RTP) teórico ideal no Baccarat é 98.94% baseado na estratégia ideal para aposta da Banca.</p>
-                        <div class='table-wrap'><table><tr><th>Tipo de Aposta</th><th>Retorno ao Jogador</th></tr><tr><td>Jogador</td><td>98.76 %</td></tr><tr><td>Banca</td><td>98.94 %</td></tr><tr><td>Empate</td><td>85.64%</td></tr></table></div>
-                        <p>O RTP teórico para apostas laterais:</p>
-                        <div class='table-wrap'><table><tr><th>Tipo de Aposta</th><th>Retorno ao Jogador</th></tr><tr><td>Par do Jogador</td><td>89.64%</td></tr><tr><td>Par da Banca</td><td>89.64%</td></tr><tr><td>Qualquer Par</td><td>86.29%</td></tr><tr><td>Par Perfeito</td><td>86.97%</td></tr><tr><td>Bônus do Jogador</td><td>97.35%</td></tr><tr><td>Bônus da Banca</td><td>90.63%</td></tr></table></div>
+                        <p><strong>RTP Teórico Ótimo:</strong> 98,94% na aposta Banca.</p>
+                        <div class='table-wrap'><table><tr><th>Aposta</th><th>Return to Player</th></tr><tr><td>Jogador</td><td>98.76 %</td></tr><tr><td>Banca</td><td>98.94 %</td></tr><tr><td>Empate</td><td>85.64%</td></tr></table></div>
+                        <p><strong>RTP Teórico para Apostas Paralelas (Side Bets):</strong></p>
+                        <div class='table-wrap'><table><tr><th>Aposta</th><th>Return to Player</th></tr><tr><td>Par do Jogador</td><td>89.64%</td></tr><tr><td>Par do Banca</td><td>89.64%</td></tr><tr><td>Par de Qualquer</td><td>86.29%</td></tr><tr><td>Par Perfeito</td><td>86.97%</td></tr><tr><td>Player Bonus</td><td>97.35%</td></tr><tr><td>Banker Bonus</td><td>90.63%</td></tr></table></div>
                       </div>
                     </div>
                   </section>
                   <section class="accordion-item" id="roadmaps">
                     <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-roadmaps">
-                      <span>Mapas de Tendência</span>
+                      <span>Roadmaps</span>
                       <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
                     </button>
                     <div id="panel-roadmaps" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>No Baccarat, tendências e sequências são rastreadas usando gráficos conhecidos como <em>"mapas de tendência".</em> Estes mapas de tendência fornecem um registro visual dos resultados de rodadas passadas e estatísticas do sapato, oferecendo aos jogadores insights que podem ajudar a antecipar resultados futuros.</p>
-                        <p>Os mapas de tendência começam a registrar resultados com a primeira rodada de um novo sapato e continuam até que a carta de corte seja alcançada. Uma vez que a última mão do sapato é distribuída, todos os registros são apagados, e o mapa de tendência reinicia com o próximo sapato.</p>
-                        <p>Há cinco mapas de tendência tradicionais usados no Baccarat:</p>
-                        <ul style="font-weight: bold;"><li>Estrada Grande
-                        </li>
-                        <li>Olho Grande</li>
-                        <li>Estrada Pequena</li>
-                        <li>Estrada da Barata</li>
-                        <li>Placa de Contas</li></ul>
-                        <h4 id='big-road'><strong>Estrada Grande</strong></h4>
-                        <p>A Estrada Grande é o mapa de tendência principal, no qual todos os outros mapas derivados são baseados.
-                         Símbolos usados na Estrada Grande incluem:</p>
-                         <img loading='lazy' src='../images/image11.png' width="90%" alt=''/>
-                        <p>A Estrada Grande começa com o primeiro resultado de um sapato, colocado no canto superior esquerdo. Resultados subsequentes do mesmo lado são registrados diretamente abaixo, enquanto lados opostos iniciam uma nova coluna. Isso cria colunas de círculos vazados ao longo do sapato, com círculos azuis representando vitórias do Jogador e círculos vermelhos indicando vitórias da Banca.</p>
-                        <img loading='lazy' src='../images/image2.png' width="90%" alt=''/>
-                        <p>Na Estrada Grande, um Empate é indicado por uma linha verde traçada sobre o último resultado. Em casos de múltiplos empates consecutivos, um pequeno número aparece na linha verde, mostrando o número total de empates. Se um Empate ocorrer antes de qualquer resultado da Banca ou Jogador ser registrado, a linha verde do Empate será exibida na célula superior esquerda da grade. Uma vez que o primeiro resultado da Banca ou Jogador é conhecido, seu círculo aparecerá na mesma célula, abaixo da linha do Empate."</p>
-                        <p>Quando há mais de seis vitórias consecutivas para a Banca ou o Jogador, esta sequência é chamada de "o dragão." Uma estratégia comum do Baccarat envolve "seguir o dragão" escolhendo repetidamente o mesmo lado até que ele mude.</p>
-                        <h4 id='the-derived-roads'><strong>As Estradas Derivadas</strong></h4>
-                        <p>O Olho Grande, Estrada Pequena e Estrada da Barata são todos derivados da Estrada Grande e ilustram vários padrões dentro dela. Essas "estradas preditivas" revelam se padrões existem.</p>
-                        <p>Cada estrada derivada usa símbolos específicos: círculos vazados para o Olho Grande, círculos sólidos para a Estrada Pequena e barras para a Estrada da Barata. Símbolos vermelhos indicam previsibilidade, enquanto símbolos azuis sugerem "caos" ou nenhum padrão discernível. É importante notar que essas cores não representam resultados da Banca ou Jogador.</p>
-                        <img loading='lazy' width="99%" src='../images/image14.png' alt=''/>
-                        <p>Estradas derivadas não começam no início do sapato. Em vez disso, elas começam com a mão imediatamente seguinte à primeira mão em colunas específicas da Estrada Grande:</p>
-                        <ul><li><strong>Olho Grande:</strong> Começa com o segundo resultado na segunda coluna.</li>
-                        <li><strong>Estrada Pequena:</strong> Começa com o segundo resultado na terceira coluna.</li>
-                        <li><strong>Estrada da Barata:</strong> Começa com o segundo resultado na quarta coluna.</li>
+                        <p>Roadmaps registram tendências e resultados anteriores para ajudar jogadores a visualizar padrões no baralho. Os registros começam no início do baralho e continuam até a carta de corte ser revelada.</p>
+                        <p>Tipos:</p>
+                        <ul><li><strong>Big Road</strong></li>
+                        <li><strong>Big Eye Boy</strong></li>
+                        <li><strong>Small Road</strong></li>
+                        <li><strong>Cockroach Road</strong></li>
+                        <li><strong>Bead Plate</strong></li></ul>
+                        <h4 id='big-road'><strong>Big Road</strong></h4>
+                        <p>O Big Road é o roadmap principal, a partir do qual todos os outros roadmaps derivados são baseados.</p>
+                        <p>O Big Road começa com o primeiro resultado de um baralho (shoe), colocado no canto superior esquerdo. Resultados subsequentes do mesmo lado são registrados diretamente abaixo, enquanto o lado oposto inicia uma nova coluna. Isso cria colunas de círculos vazios ao longo do baralho, com círculos azuis representando vitórias do Jogador e círculos vermelhos indicando vitórias do Banqueiro.</p>
+                        <img loading='lazy' src='../images/image66.png' width="90%" alt='Exemplo Big Road'/>
+                        <p>No Big Road, um Empate é indicado por uma linha verde traçada sobre o último resultado. Em casos de múltiplos empates consecutivos, um pequeno número aparece na linha verde, mostrando o total de empates. Se um Empate ocorrer antes de qualquer resultado do Banqueiro ou do Jogador, a linha verde de Empate será exibida na célula superior esquerda da grade. Assim que o primeiro resultado do Banqueiro ou do Jogador for registrado, seu círculo aparecerá na mesma célula, abaixo da linha de Empate.</p>
+                        <p>Quando há mais de seis vitórias consecutivas para o Banqueiro ou para o Jogador, essa sequência é chamada de “dragão”. Uma estratégia comum no Baccarat é “seguir o dragão”, ou seja, apostar repetidamente no mesmo lado até que ele mude.</p>
+                        <h4 id='the-derived-roads'><strong>Roadmaps Derivados</strong></h4>
+                        <p>O Big Eye Boy, Small Road e Cockroach Road são todos derivados do Big Road e mostram diferentes padrões dentro dele. Esses “roadmaps preditivos” indicam se existem padrões a serem observados.</p>
+                        <p>Cada roadmap derivado usa símbolos específicos: círculos vazios para o Big Eye Boy, círculos sólidos para o Small Road e barras (slashes) para o Cockroach Road. Símbolos vermelhos indicam previsibilidade, enquanto símbolos azuis sugerem “caos” ou ausência de padrão discernível. É importante notar que essas cores <strong>não representam os resultados do Banqueiro ou do Jogador</strong>.</p>
+                        <img loading='lazy' src='../images/image77.png' width="90%" alt='Roadmaps derivados'/>
+                        <p>Os roadmaps derivados <strong>não começam no início do baralho</strong>. Em vez disso, eles começam com a mão imediatamente após a primeira mão em colunas específicas do Big Road:</p>
+                        <ul><li><strong>Big Eye Boy:</strong> começa com o segundo resultado na segunda coluna.</li>
+                        <li><strong>Small Road:</strong> começa com o segundo resultado na terceira coluna.</li>
+                        <li><strong>Cockroach Road:</strong> começa com o segundo resultado na quarta coluna.</li>
                         </ul>
-                        <p>Uma vez que uma estrada derivada tenha começado, um novo símbolo vermelho ou azul é adicionado após cada mão subsequente. Os usuários podem clicar ou tocar em qualquer estrada derivada para visualizar seu conteúdo em mais detalhes.</p>
+                        <p>Uma vez iniciado, um novo símbolo vermelho ou azul é adicionado a cada mão subsequente. Os usuários podem clicar ou tocar em qualquer roadmap derivado para ver seu conteúdo em mais detalhes.</p>
                       </div>
                     </div>
                   </section>
                   <section class="accordion-item" id="bead-plate">
                     <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-bead-plate">
-                      <span>Placa de Contas</span>
+                      <span>Bead Plate</span>
                       <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
                     </button>
                     <div id="panel-bead-plate" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>A Placa de Contas rastreia cada mão em um sapato de maneira direta. Círculos verdes em células separadas na Placa de Contas denotam empates.</p>
-                        <p>Os resultados são exibidos começando do canto superior esquerdo da grade, preenchendo verticalmente cada uma das seis células em uma coluna. Uma nova coluna começa assim que a anterior estiver cheia, independentemente do resultado da mão.</p>
-                        <p>Tocar ou clicar na área de estatísticas da Placa de Contas mostrará resultados como letras (J para Jogador, B para Banca, E para Empate).</p>
+                        <p>O Bead Plate registra cada mão do baralho de forma simples. Círculos verdes em células separadas indicam empates.</p>
+                        <p>Os resultados são exibidos a partir do canto superior esquerdo da grade, preenchendo verticalmente cada uma das seis células de uma coluna. Uma nova coluna começa assim que a anterior estiver completa, independentemente do resultado das mãos.</p>
                         <img loading='lazy' src='../images/image1.png' width="90%" alt=''/>
                       </div>
                     </div>
                   </section>
                   <section class="accordion-item" id="roadmap-probing">
                     <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-roadmap-probing">
-                      <span>Sondagem dos Mapas (Perguntar Jogador, Perguntar Banca)</span>
+                      <span>Probing do Roadmap (Previsão da Próxima Rodada)</span>
                       <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
                     </button>
                     <div id="panel-roadmap-probing" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>A Sondagem dos Mapas ajuda os jogadores a prever o resultado da próxima rodada. Ela mostra as tendências na Estrada Grande, Olho Grande, Estrada Pequena, Estrada da Barata e Placa de Contas se um resultado do Jogador ou da Banca fosse adicionado.</p>
-                        <p>Clique/toque no botão Perguntar Jogador ou Perguntar Banca para ver as tendências, caso o próximo resultado fosse uma vitória do Jogador ou da Banca, respectivamente.</p>
+                        <p>O Probing do Roadmap ajuda os jogadores a prever o resultado da próxima rodada. Ele mostra as tendências no Big Road, Big Eye Boy, Small Road, Cockroach Road e Bead Plate caso o próximo resultado seja do Jogador ou do Banqueiro.</p>
+                        <p>Clique ou toque nos botões <strong>Player Predict</strong> ou <strong>Banker Predict</strong> para visualizar as tendências caso a próxima vitória seja do Jogador ou do Banqueiro, respectivamente.</p>
                         <img loading='lazy' src='../images/image5.png' width="33%" alt=''/>
-                        <p>Os símbolos nos botões representam qual seria a entrada das estradas derivadas se o Jogador ou a Banca vencesse.</p>
+                        <p>Os símbolos nos botões representam como seriam os registros nos roadmaps derivados se o Jogador ou o Banqueiro vencer.</p>
                       </div>
                     </div>
                   </section>
@@ -528,32 +529,38 @@ img { max-width: 90% !important; }
                     </button>
                     <div id="panel-navigation-controls" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <!-- <p>Os controles de navegação mantêm o chat, a ajuda e as ferramentas de configuração sempre à mão, para que você possa alternar rapidamente entre tarefas sem sair da mesa.</p>-->
+                        <p><strong>Suporte ao Cliente</strong></p>
+                        <p>O Suporte ao Cliente monitora todas as mensagens do chat. Jogadores que fizerem uso inadequado do chat, incluindo abuso ao Dealer ou a outros jogadores, ou uso de linguagem imprópria ou ofensiva, podem ter seus privilégios de chat desativados.</p>
                         <p><strong>Configurações</strong></p>
-                        <p>Abrir as Configurações permite ajustar o jogo às suas preferências.</p>
-                        <p>Aqui você pode ajustar o volume do jogo. Sons do estúdio são quaisquer sons captados do ambiente do estúdio, enquanto
-                          efeitos de jogo são os sons das interações da interface.</p>
-                        <img loading='lazy' src='../images/image16.png' width="25%" alt='' />
-                        <p>O Histórico de Jogos permite visualizar todas as suas partidas anteriores e respectivos resultados. Clique em um jogo
-                          específico para ver Data, Tipo de jogo, Aposta e Resultado.</p>
-                        <img loading='lazy' src='../images/image12.png' width="25%" alt='' />
-                        <p>A Ajuda do Jogo exibe um guia completo sobre como jogar e navegar na interface.</p>
-                        <img loading='lazy' src='../images/image13.png' width="25%" alt='' />
-                        <p>Na aba Geral, as seguintes configurações estão disponíveis:</p>
+                        <p>Abrir as configurações permite ajustar o jogo conforme suas preferências.</p>
+                        <p>Aqui você pode ajustar:</p>
                         <ul>
-                          <li>Nome de exibição</li>
-                          <li>Idioma</li>
+                          <li><strong>Volume do jogo</strong></li>
+                          <li><strong>Sons do estúdio:</strong> sons captados do estúdio durante o jogo</li>
+                          <li><strong>Efeitos do jogo:</strong> sons de interação com a interface</li>
                         </ul>
-                        <p>Na aba Vídeo:</p>
+                        <img loading='lazy' src='../images/image16.png' width="25%" alt='Configurações de som' />
+                        <p><strong>Histórico de Jogos</strong></p>
+                        <p>O Histórico de Jogos permite visualizar todas as suas partidas anteriores e seus resultados. É possível clicar em uma partida específica para ver a <strong>data</strong>, <strong>tipo de jogo</strong>, <strong>aposta</strong> e <strong>resultado (vitória/derrota)</strong>.</p>
+                        <img loading='lazy' src='../images/image12.png' width="25%" alt='Histórico de jogos' />
+                        <p><strong>Ajuda do Jogo</strong></p>
+                        <p>A Ajuda do Jogo exibe um guia completo de como jogar e navegar pela interface.</p>
+                        <img loading='lazy' src='../images/image13.png' width="25%" alt='Ajuda do jogo' />
+                        <p><em><strong>Aba Geral</strong> – configurações disponíveis:</em></p>
                         <ul>
-                          <li>Alternar jogo com vídeo</li>
-                          <li>Qualidade do vídeo</li>
+                          <li><em>Nome de exibição</em></li>
+                          <li><em>Idioma</em></li>
                         </ul>
-                        <p>Na aba Som:</p>
+                        <p><em><strong>Vídeo:</strong></em></p>
                         <ul>
-                          <li>Controle deslizante de todos os sons</li>
-                          <li>Controle deslizante de sons do estúdio</li>
-                          <li>Controle deslizante de efeitos do jogo</li>
+                          <li><em>Alternar reprodução com vídeo</em></li>
+                          <li><em>Qualidade do vídeo</em></li>
+                        </ul>
+                        <p><em><strong>Som:</strong></em></p>
+                        <ul>
+                          <li><em>Controle de todos os sons</em></li>
+                          <li><em>Sons do estúdio</em></li>
+                          <li><em>Efeitos do jogo</em></li>
                         </ul>
                       </div>
                     </div>
@@ -571,30 +578,21 @@ img { max-width: 90% !important; }
                   </section>-->
                   <section class="accordion-item" id="card-shuffle-and-change">
                     <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-card-shuffle-and-change">
-                      <span>Embaralhamento e Troca de Cartas</span>
+                      <span>Embaralhamento e Troca de Baralho</span>
                       <img class="accordion-icon" src="../images/down-arrow.png" alt="" aria-hidden="true" />
                     </button>
                     <div id="panel-card-shuffle-and-change" class="accordion-panel" hidden>
                       <div class="accordion-content">
                         <p><strong>Embaralhamento:</strong></p>
                         <ul>
-                        <li><strong>Cronometragem:</strong> O embaralhamento ocorre imediatamente após uma rodada de jogo concluir e a carta de corte ser removida do sapato.</li>
-                        <li><strong>Método:</strong> As cartas são embaralhadas por um Embaralhador dedicado em uma mesa de embaralhamento ou pelo Dealer na mesa de jogo, aderindo aos procedimentos estabelecidos de embaralhamento.</li>
+                        <li><strong>Momento:</strong> O embaralhamento ocorre imediatamente após o término de uma rodada e a remoção da carta de corte do baralho.</li>
+                        <li><strong>Método:</strong> As cartas são embaralhadas por um embaralhador dedicado em uma mesa de embaralhar ou pelo Dealer na mesa de jogo, seguindo os procedimentos estabelecidos.</li>
                         </ul>
                         <p><strong>Carta de Corte e Última Mão:</strong></p>
                         <ul>
                         <li>Quando a carta de corte aparece durante o jogo, ela é removida.</li>
-                        <li>O Dealer então anuncia que a mão atual é a mão final do sapato.</li>
-                        <li>Após a conclusão desta última mão, nenhuma carta adicional é distribuída até que uma troca de sapato ou um procedimento de embaralhamento seja iniciado.</li>
-                        </ul>
-                        <p><strong>Procedimento de Troca de Sapato:</strong></p>
-                        <ul>
-                        <li><strong>Mudanças Discricionárias:</strong> A gestão do turno reserva a única discrição para iniciar uma troca de sapato antes mesmo da carta de corte ser removida.</li>
-                        <li><strong>Mudanças Obrigatórias:</strong> Um procedimento completo de troca de cartas é realizado uma vez a cada 24 horas ou nos seguintes cenários específicos:
-                        <ul><li>A mesa foi reativada após um período de inatividade.</li>
-                        <li>O stream de vídeo da mesa ficou indisponível.</li>
-                        <li>Mais de três cartas caíram acidentalmente no chão durante uma rodada de jogo.</li>
-                        <li>Uma carta com código de barras defeituoso é descoberta dentro do sapato.</li></ul></li>
+                        <li>O Dealer anuncia que a mão atual é a última do baralho (shoe).</li>
+                        <li>Após essa última mão, nenhuma carta é distribuída até que seja realizada uma troca de baralho ou um novo embaralhamento.</li>
                         </ul>
                       </div>
                     </div>
@@ -606,9 +604,9 @@ img { max-width: 90% !important; }
                     </button>
                     <div id="panel-game-inconveniences" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>Se qualquer erro ocorrer durante um jogo de Baccarat—seja relacionado ao próprio jogo, sistema, procedimento do jogo ou atividade de transação—a rodada do jogo será temporariamente pausada. O Gerente do Turno será imediatamente notificado, e todos os jogadores receberão uma notificação na tela de que o problema está sendo investigado.</p>
-                        <p>Se o erro puder ser resolvido prontamente, o jogo será retomado normalmente. Se a resolução imediata não for possível, a rodada do jogo será cancelada, e todas as apostas iniciais serão reembolsadas aos jogadores participantes.</p>
-                        <p>Para quaisquer preocupações relacionadas ao jogo, entre em contato com o Suporte ao Vivo e forneça seu número de ID do Jogo.</p>
+                        <p>Se ocorrer qualquer erro durante uma partida de Baccarat — relacionado ao jogo, ao sistema, aos procedimentos ou a transações — a rodada será temporariamente pausada.<br> O Shift Manager será imediatamente notificado, e todos os jogadores receberão uma notificação na tela informando que o problema está sendo investigado.</p>
+                        <p>Se o erro puder ser resolvido rapidamente, o jogo continuará normalmente. Caso a resolução imediata não seja possível, a rodada será cancelada e todas as apostas iniciais serão reembolsadas aos jogadores participantes.</p>
+                        <p>Para quaisquer dúvidas relacionadas ao jogo, entre em contato com o Suporte ao Vivo e forneça seu número de ID da partida.</p>
                       </div>
                     </div>
                   </section>
@@ -619,33 +617,30 @@ img { max-width: 90% !important; }
                     </button>
                     <div id="panel-disconnection-policy" class="accordion-panel" hidden>
                       <div class="accordion-content">
-                        <p>Enquanto joga online, desconexões podem ocasionalmente ocorrer. Se isso acontecer, você pode revisar seus ganhos na janela do Histórico. Para quaisquer consultas sobre resultados de jogos, entre em contato com o Suporte ao Vivo diretamente dentro do jogo ou entre em contato com o Suporte ao Cliente do Casino, garantindo que forneça seu número de ID do Jogo.</p>
+                        <p>Durante o jogo online, desconexões podem ocorrer ocasionalmente.<br> Caso isso aconteça, você pode consultar seus ganhos no Histórico de Jogos.<br> Para dúvidas sobre resultados de jogo, entre em contato diretamente com o Suporte ao Vivo ou com o Suporte ao Cliente do cassino, fornecendo seu número de ID da partida.</p>
                       </div>
                     </div>
                   </section>
-              </div>
-            </div>
-          </section>
-        </div>
-      </article>
-    </main>
-    <script>
-      const accordionButtons = document.querySelectorAll('.accordion-trigger');
-      accordionButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const expanded = button.getAttribute('aria-expanded') === 'true';
-          const panelId = button.getAttribute('aria-controls');
-          const panel = document.getElementById(panelId);
-          button.setAttribute('aria-expanded', String(!expanded));
-          if (panel) {
-            panel.hidden = expanded;
-          }
-          const icon = button.querySelector('.accordion-icon');
-          if (icon) {
-            icon.src = expanded ? '../images/down-arrow.png' : '../images/up-arrow.png';
-          }
-        });
-      });
-    </script>
-  </body>
+                </div>
+              </article>
+            </main>
+            <script>
+              const accordionButtons = document.querySelectorAll('.accordion-trigger');
+              accordionButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                  const expanded = button.getAttribute('aria-expanded') === 'true';
+                  const panelId = button.getAttribute('aria-controls');
+                  const panel = document.getElementById(panelId);
+                  button.setAttribute('aria-expanded', String(!expanded));
+                  if (panel) {
+                    panel.hidden = expanded;
+                  }
+                  const icon = button.querySelector('.accordion-icon');
+                  if (icon) {
+                    icon.src = expanded ? '../images/down-arrow.png' : '../images/up-arrow.png';
+                  }
+                });
+              });
+            </script>
+          </body>
 </html>
