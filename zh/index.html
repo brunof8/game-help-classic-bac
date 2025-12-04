@@ -15,8 +15,22 @@
   --card: #151515;
   --border: #2f2f2f;
 }
+@font-face {
+  font-family: 'Blinker';
+  src: url('../font/Blinker-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Blinker';
+  src: url('../font/Blinker-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 * { box-sizing: border-box; }
-html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-size: 18px; }
+html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-size: 18px; }
 body { height: 100vh; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -24,8 +38,8 @@ a:hover { text-decoration: underline; }
 .container { max-width: 920px; margin: 0 auto; padding: 16px; }
 .header { position: sticky; top: 0; z-index: 10; background: linear-gradient(180deg, rgba(10,10,10,0.98), rgba(10,10,10,0.92)); border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
 .header-inner { display:flex; align-items:center; gap:12px; padding: 12px 16px; }
-header .title { font-size: 1.777777rem; font-weight: 700; }
-.badge { font-size:.75rem; color: var(--muted); background: var(--bg-alt); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); }
+.header .title { font-size: 1.777777rem; font-weight: 600; margin: 0 auto; display: inline-flex; align-items: center; gap: 10px; font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+.badge { font-size:.75rem; color: var(--muted); background: var(--bg-alt); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); font-weight: 400; }
 
 .main { padding: 16px; }
 .summary { background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 16px; margin: 12px 0 24px; }
@@ -35,6 +49,7 @@ header .title { font-size: 1.777777rem; font-weight: 700; }
 .toc li::before { content: '• '; color: var(--accent); }
 
 h1,h2,h3,h4,h5,h6 { scroll-margin-top: 80px; }
+h1,h2,h3,h4,h5,h6 { font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-weight: 600; }
 h2 { margin-top: 28px; border-bottom: 1px dashed var(--border); padding-bottom: 6px; font-size: 2rem; }
 h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }
@@ -43,7 +58,7 @@ p, ul li { line-height: 1.6; }
 table { width: 100%; border-collapse: collapse; min-width: 420px; }
 th, td { border-bottom: 1px solid var(--border); padding: 10px; text-align: left; }
 th { background: var(--bg-alt); }
-
+img { max-width: 90% !important; }
 .toc-table { border-spacing: 0; }
 .toc-table th { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
 .toc-table td { padding: 8px 16px; }
@@ -61,9 +76,11 @@ th { background: var(--bg-alt); }
 .gallery img { width: 100%; height: auto; display: block; border-radius: 8px; }
 .gallery figcaption { font-size: .8rem; color: var(--muted); margin-top: 6px; word-break: break-all; }
 
+.footer { max-width: 100%; position: fixed; width: 100%; bottom: 0; background: #0a0a0a; color: var(--muted); font-size: .85rem; padding: 5px 16px !important; }
+.footer p { line-height: 1; }
 /* Mobile-first tweaks */
 .container { padding: 12px; }
-.title { font-size: 1.5rem; }
+.title { font-size: 1.5rem; text-align: center; }
 
 /* Tablet and up */
 @media (min-width: 640px) {
@@ -78,9 +95,10 @@ th { background: var(--bg-alt); }
 
 .accordion { display: flex; flex-direction: column; gap: 16px; }
 .accordion-item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-.accordion-trigger { width: 100%; background: none; border: none; color: var(--text); font: inherit; text-align: left; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; font-size: 1.222222rem; font-weight: 600; }
-.accordion-trigger:hover, .accordion-trigger:focus-visible { background: rgba(154, 220, 255, 0.08); outline: 1px solid var(--accent); outline-offset: 2px; }
-.accordion-icon { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; display: inline-block; pointer-events: none; }
+.accordion-trigger { width: 100%; background: none; border: none; color: var(--text); font: inherit; text-align: left; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; font-size: 1.222222rem; font-weight: 400; border-radius: 16px;}
+.accordion-trigger:hover, .accordion-trigger:focus-visible { background: rgba(154, 220, 255, 0.08); }
+.accordion-trigger[aria-expanded="true"], .accordion-trigger[aria-expanded="true"]:hover, .accordion-trigger[aria-expanded="true"]:focus-visible { background: rgba(255, 255, 255, 0.3); }
+.accordion-icon { width: 25px; height: 25px; object-fit: contain; flex-shrink: 0; display: inline-block; pointer-events: none; }
 .accordion-panel { border-top: 1px solid var(--border); padding: 0 20px 20px; background: var(--card); }
 .accordion-panel[hidden] { display: none; }
 .accordion-content > :first-child { margin-top: 20px; }
@@ -91,7 +109,7 @@ th { background: var(--bg-alt); }
   <body>
     <header class="header">
       <div class="header-inner container">
-        <div class="title">游戏帮助</div> <span><i>v.1.0</i></span>
+        <div class="title"><img src="../images/help.png" height="25px" style="height: 25px;" alt="Help" /> <span>游戏帮助</span> <span class="badge"><i>v.1.0</i></span></div> 
       </div>
     </header>
     <main class="main container">
