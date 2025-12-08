@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#0a0a0a" />
     <style>
 :root {
-  --bg: #1a1a1a;
+  --bg: #181818;
   --bg-alt: #2a2a2a;
   --text: #e8e8e8;
   --muted: #b5b5b5;
@@ -23,22 +23,23 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'Blinker';
+  font-family: 'Blinker-Bold';
   src: url('../font/Blinker-SemiBold.ttf') format('truetype');
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 * { box-sizing: border-box; }
-html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-size: 18px; }
-body { height: 100vh; }
+html, body { margin:0; padding:0; background: rgba(0,0,0,0.5); color: var(--text); font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-size: 18px; }
+body { min-height: 100vh; overflow-y: auto; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .container { max-width: 920px; margin: 0 auto; padding: 16px; }
-.header { position: sticky; top: 0; z-index: 10; background: linear-gradient(180deg, rgba(10,10,10,0.98), rgba(10,10,10,0.92)); border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
+.header { position: sticky; top: 0; z-index: 10; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); }
 .header-inner { display:flex; align-items:center; gap:12px; padding: 12px 16px; }
-.header .title { font-size: 1.777777rem; font-weight: 600; margin: 0 auto; display: inline-flex; align-items: center; gap: 10px; font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+.header .title { font-size: 1.777777rem; font-weight: 400; margin: 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Blinker-Bold', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; position: relative; }
+.header .title .badge { position: absolute; top: 50%; transform: translateY(-50%); left: calc(100% + 10px); }
 .badge { font-size:.75rem; color: var(--muted); background: var(--bg-alt); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); font-weight: 400; }
 
 .main { padding: 16px; }
@@ -49,7 +50,7 @@ a:hover { text-decoration: underline; }
 .toc li::before { content: '• '; color: var(--accent); }
 
 h1,h2,h3,h4,h5,h6 { scroll-margin-top: 80px; }
-h1,h2,h3,h4,h5,h6 { font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-weight: 600; }
+h1,h2,h3,h4,h5,h6 { font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-weight: 400; }
 h2 { margin-top: 28px; border-bottom: 1px dashed var(--border); padding-bottom: 6px; font-size: 2rem; }
 h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }

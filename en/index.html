@@ -23,22 +23,23 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'Blinker';
+  font-family: 'Blinker-Bold';
   src: url('../font/Blinker-SemiBold.ttf') format('truetype');
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 * { box-sizing: border-box; }
-html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-size: 18px; }
-body { height: 100vh; }
+html, body { margin:0; padding:0; background: rgba(0,0,0,0.5); color: var(--text); font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-size: 18px; }
+body { min-height: 100vh; overflow-y: auto; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .container { max-width: 920px; margin: 0 auto; padding: 16px; }
-.header { position: sticky; top: 0; z-index: 10; background: linear-gradient(180deg, rgba(10,10,10,0.98), rgba(10,10,10,0.92)); border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
+.header { position: sticky; top: 0; z-index: 10; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); }
 .header-inner { display:flex; align-items:center; gap:12px; padding: 12px 16px; }
-.header .title { font-size: 1.777777rem; font-weight: 600; margin: 0 auto; display: inline-flex; align-items: center; gap: 10px; font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+.header .title { font-size: 1.777777rem; font-weight: 400; margin: 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Blinker-Bold', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; position: relative; }
+.header .title .badge { position: absolute; top: 50%; transform: translateY(-50%); left: calc(100% + 10px); }
 .badge { font-size:.75rem; color: var(--muted); background: var(--bg-alt); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); font-weight: 400; }
 
 .main { padding: 16px; }
@@ -49,7 +50,7 @@ a:hover { text-decoration: underline; }
 .toc li::before { content: '• '; color: var(--accent); }
 
 h1,h2,h3,h4,h5,h6 { scroll-margin-top: 80px; }
-h1,h2,h3,h4,h5,h6 { font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-weight: 600; }
+h1,h2,h3,h4,h5,h6 { font-family: 'Blinker', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; font-weight: 400; }
 h2 { margin-top: 28px; border-bottom: 1px dashed var(--border); padding-bottom: 6px; font-size: 2rem; }
 h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }
@@ -123,7 +124,7 @@ img { max-width: 90% !important; }
             <div id="panel-introduction" class="accordion-panel" hidden>
               <div class="accordion-content">
                 <p>Baccarat is a classic casino game that is well known, and enjoyed by players across the globe. It holds appeal among high-stakes players and is widely popular in Asian markets. The game is known for its straightforward mechanics and engaging pace.</p>
-                <p>The goal is simple: predict which side, either the Player or the Banker, will have a hand total closest to 9.</p>
+                <p>The  goal is simple; to predict which side, either the Player or the Banker, will have a hand total closest to 9.</p>
               </div>
             </div>
           </section>
@@ -136,7 +137,7 @@ img { max-width: 90% !important; }
               <div class="accordion-content">
                 <p>To start playing, choose your bet amount and place your wager on the Player, Banker, or Tie bet spots. You can adjust your bets as long as the betting time is still open.</p>
                 <p>Once betting closes, the Dealer deals four cards in total: the 1st and 3rd cards go to the Player side, while the 2nd and 4th cards go to the Banker side. The Dealer scans the cards starting with the Player’s hand.</p>
-                <p>If either side requires a third card, the Dealer draws it according to the Third Card Rule.</p>
+                <p>If either side requires a third card, the Dealer draws it according to the Third Card Rule, which we’ll explain further below.</p>
                 <p>When all necessary cards have been dealt, the round concludes. The side with a hand total closest to 9 wins. If both sides have the same total, the round results in a Tie.</p>
                 <p>Winning bets are highlighted, and payouts are made based on your selected bets. Your winnings will also be displayed on your screen.</p>
                 <p>Once the round ends, the cards are cleared from the table, and a new betting phase begins.</p>
@@ -198,7 +199,7 @@ img { max-width: 90% !important; }
                 <ul><li>If either the Player or Banker hand totals 8 or 9 points from their first two cards (a "Natural hand").</li>
                 <li>If the Player has 6 points and the Banker has 7 points, or vice versa.</li>
                 <li>If both hands result in a Tie with 6, 7, 8, or 9 points.</li></ul>
-                <p>If both hands have an initial two-card total between 0 and 7, the Third Card Rule determines whether a third card is drawn. The Player’s hand is always resolved first.</p>
+                <p>If both the Player and Banker hands have an initial two-card total between 0 and 7, the Third Card Rule is applied to determine if a third card should be dealt to either hand. The Player's hand is always considered first.</p>
                 <p><strong>For the Player's hand to draw:</strong></p>
                 <div class='table-wrap'>
                    <table>
@@ -469,10 +470,10 @@ img { max-width: 90% !important; }
             </button>
             <div id="panel-no-commission-mode" class="accordion-panel" hidden>
               <div class="accordion-content">
-                <p>No Commission Baccarat is an alternative to traditional Baccarat where the usual 5% commission on Banker wins is removed. This variation offers faster, more straightforward payouts. In this mode, standard Banker wins pay 1:1, just like Player wins—except when the Banker wins with a total of 6.</p>
+                <p>No Commission Baccarat is an alternative to traditional Baccarat where the usual 5% commission on Banker wins is removed. This variation offers faster, more straightforward payouts and increases its appeal to players. In this mode, standard Banker wins pay 1:1, just like Player wins—except when the Banker wins with a total of 6.</p>
                 <p>If the Banker’s winning hand totals 6, the payout is half the wager (0.5:1).</p>
                 <p>All tables start in Regular Baccarat by default. However, you can switch to No Commission mode at any time before the betting timer ends by using the “No Comm.” toggle.</p>
-                <p>No Commission Baccarat also includes the popular Super 6 side bet, which pays 15:1 when the Banker wins with 6. Rules for Super 6:</p>
+                <p>No Commission Baccarat also includes the popular Super 6 side bet. This bet acts as protection against the reduced payout when the Banker wins with a 6 and offers a payout of 15:1. Keep in mind the following rules when placing a Super 6 bet:</p>
                 <ul>
                   <li>You may only place a Super 6 bet after wagering on at least one of the main betting options. Placing bets on Super 6 and Player simultaneously is not considered opposite betting.</li>
                   <li>The Super 6 bet amount cannot be higher than your main bet.</li>
@@ -518,7 +519,7 @@ img { max-width: 90% !important; }
                 <p>When there are more than six consecutive wins for either the Banker or the Player, this sequence is referred to as "the dragon." A common Baccarat strategy involves "following the dragon," repeatedly choosing the same side until it switches.</p>
                 <h4 id='derived-roads'><strong>The Derived Roads</strong></h4>
                 <p>The Big Eye Boy, Small Road, and Cockroach Road are all derived from the Big Road and illustrate various patterns within it. These "predictive roads" reveal whether patterns exist.</p>
-                <p>Each derived road uses specific symbols: empty circles for the Big Eye Boy, solid circles for the Small Road, and slashes for the Cockroach Road. Red symbols indicate predictability, while blue symbols suggest “chaos” or no discernible pattern. These colors do not represent Banker or Player outcomes.</p>
+                <p>Each derived road uses specific symbols: empty circles for the Big Eye Boy, solid circles for the Small Road, and slashes for the Cockroach Road. Red symbols indicate predictability, while blue symbols suggest “chaos” or no discernible pattern. It's important to note that these colors do not represent Banker or Player outcomes.</p>
                 <p><img src="../images/image77.png" alt="Derived Road" style="max-width: 90%;" /></p>
                 <p>Derived roads do not begin at the very start of the shoe. Instead, they begin with the hand immediately following the first hand in specific columns of the Big Road:</p>
                 <ul>
